@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150308150459) do
+ActiveRecord::Schema.define(version: 20150308152816) do
 
   create_table "locations", force: true do |t|
     t.string   "address"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20150308150459) do
     t.decimal  "totalbill"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
   end
 
 end

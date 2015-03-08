@@ -1,4 +1,4 @@
 class Restaurant < ActiveRecord::Base
 
-	validates_pressence_of name:, description:
+	validates_presence_of :name
 end

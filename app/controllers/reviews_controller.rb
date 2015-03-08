@@ -1,0 +1,40 @@
+class ReviewsController < ApplicationController
+
+  def new
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @review = @restaurant.reviews.new
+  end
+
+  def create
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @review = @restaurant.reviews.create(review_params)
+  end
+
+  def edit
+    @review = Review.find(params[:id])
+  end
+
+  def update
+    @review = Review.update_attributes(review_params)
+  end
+
+#optional since we are showing the reviews on the restaurant page
+  def index
+    @restaurants = Review.all
+  end
+
+  def show
+    @restaurant = Restaurant.find(params[:id])
+  end
+
+  def destroy
+  end
+
+private
+
+  def review_params
+    params.require(:review).permit(:review, :rating, :totalbill, :title)
+  end
+
+
+end

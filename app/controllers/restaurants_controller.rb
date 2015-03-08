@@ -13,7 +13,7 @@ class RestaurantsController < ApplicationController
   end
 
   def update
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.update_attributes(restaurant_params)
   end
 
   def index
@@ -24,7 +24,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
   end
 
-#todo  
+#todo
   def destroy
   end
 

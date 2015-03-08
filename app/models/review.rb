@@ -1,4 +1,6 @@
 class Review < ActiveRecord::Base
-
-	validates_pressence_of title:,review:, rating:
+	belongs_to :restaurant
+	validates_pressence_of title:
+	validates_pressence_of review:
+	validates_pressence_of rating:
 end

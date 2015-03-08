@@ -1,9 +1,9 @@
-<h1>Create a Restaurant...</h2>
+<h1>Editing the Restaurant</h1>
+
+<%= form_for :restaurant, url: restaurant_path(@restaurant), method: :patch do |f|%>
 
 
-<!-- Form for creation of restaurant -->
-
-<%= form_for @restaurant, url: restaurants_path do |f| %>
+<!-- CHECKING ERRORS -->
 
 	<!-- Checking for any error messages -->
 	<% if @restaurant.errors.any? %>

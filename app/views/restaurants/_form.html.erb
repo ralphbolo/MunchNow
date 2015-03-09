@@ -1,0 +1,59 @@
+<div id="restaurant-form">
+<%= form_for @restaurant, url: restaurants_path do |f| %>
+
+	<!-- Checking for any error messages -->
+	<% if @restaurant.errors.any? %>
+		<div id="error_explanation">
+			<h2>
+				<%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved
+			</h2>
+			<ul>
+				<%= @restaurant.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<p>
+		<%= f.label :name %>
+		<br>
+		<%= f.text_field :name %>
+	</p>
+
+	<!-- Type form input goes here (drop menu of types of restaurants) -->
+
+	<p>
+		<h2>Food Prices</h2>
+
+		<%= f.label(:price_low, "Low priced food")%>
+		<br>
+		<%= f.radio_button(:pricerange, "low") %>
+
+		<br>
+
+
+		<%= f.label(:price_medium, "Medium priced food")%>
+		<br>
+		<%= f.radio_button(:pricerange, "medium") %>
+
+		<br>
+
+
+		<%= f.label(:price_high, "High priced food")%>
+		<br>
+		<%= f.radio_button(:pricerange, "high") %>
+	</p>
+
+	<p>
+		<%= f.label :description %>
+		<br>
+		<%= f.text_field :description %>
+	</p>
+
+	<p>
+		<%= f.submit %>
+	</p>
+
+<% end %>
+</div>

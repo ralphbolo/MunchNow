@@ -1,5 +1,10 @@
 <h1>Listing restaurants</h1>
  
+<!-- Query -->
+<div id="query-index">
+<%= render 'query' %>
+</div>
+
 <table>
   <tr>
     <th>Name</th>
@@ -12,6 +17,8 @@
       <td><%= restaurant.name %></td>
       <td><%= restaurant.pricerange %></td>
       <td><%= restaurant.description %></td>
+      <td><%= link_to 'Show', restaurant_path(restaurant)%></td>
+      <td><%= link_to 'Edit', restaurant_path(restaurant)%></td>
     </tr>
   <% end %>
 </table>

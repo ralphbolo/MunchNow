@@ -1,3 +1,20 @@
 // Place all the styles related to the Restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//Header and footer
+#header, #footer {
+	color: blue;
+}
+
+//Form testing
+#restaurant-form {
+	float:left;
+	background-color: cyan;
+}
+
+//Query Testing
+#query-index{
+	float:left;
+	background-color: grey;	
+}

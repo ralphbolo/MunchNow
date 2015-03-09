@@ -12,3 +12,8 @@
 	Description:
 	<%= @restaurant.description %>
 </p>
+
+<!-- Back to index -->
+<%= link_to 'Back', restaurants_path %>
+<!-- To Edit the restaurant page -->
+<%= link_to 'Edit', edit_restaurant_path(@restaurant) %>

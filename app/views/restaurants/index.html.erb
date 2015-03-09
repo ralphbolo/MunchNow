@@ -1,24 +1,31 @@
-<h1>Listing restaurants</h1>
- 
-<!-- Query -->
-<div id="query-index">
-<%= render 'query' %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-4"> 
+        <!-- Query -->
+        <div>
+          <%= render 'query' %>
+        </div>
+    </div>
+    <div class="col-xs-8">
+      <h1>Listing restaurants</h1>
+
+          <% @restaurants.each do |restaurant| %>
+            <div id="rest-view-test">
+              <h3>
+                <%= restaurant.name %>
+              </h3>
+              <h3>
+                <%= restaurant.pricerange %>
+              </h3>
+              <h3>
+                <%= restaurant.description %>
+              </h3>
+              <br>
+            <%= link_to 'Show', restaurant_path(restaurant)%>
+            <%= link_to 'Edit', restaurant_path(restaurant)%>
+            </div>
+          <% end %>
+    </div>
+  </div> 
 </div>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Price Range</th>
-    <th>Descreption</th>
-  </tr>
- 
-  <% @restaurants.each do |restaurant| %>
-    <tr>
-      <td><%= restaurant.name %></td>
-      <td><%= restaurant.pricerange %></td>
-      <td><%= restaurant.description %></td>
-      <td><%= link_to 'Show', restaurant_path(restaurant)%></td>
-      <td><%= link_to 'Edit', restaurant_path(restaurant)%></td>
-    </tr>
-  <% end %>
-</table>

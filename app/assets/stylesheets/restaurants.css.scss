@@ -2,19 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-//Header and footer
-#header, #footer {
-	color: blue;
-}
+//Bootstrap import
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
-//Form testing
-#restaurant-form {
-	float:left;
-	background-color: cyan;
-}
-
-//Query Testing
-#query-index{
-	float:left;
-	background-color: grey;	
+#rest-view-test{
+	height: 200px;
+	background-color: orange;
 }

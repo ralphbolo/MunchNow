@@ -48,6 +48,4 @@ ActiveRecord::Schema.define(version: 20150308152816) do
     t.string   "title"
   end
 
-  # Refers table creation goes here
-
 end

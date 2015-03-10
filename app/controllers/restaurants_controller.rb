@@ -3,6 +3,18 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
 
+    # if pricingIsPassedIn
+    #   @restaurants = get the resturants for that price range
+    # end
+
+    # if ratingIsPassedIn
+    #   @restaurants = get the restaurants for that rating
+    # end
+
+
+    # Params - query string parameters, post parameters
+    # ActiveRecord - find_by, where
+
   end
 
   def show

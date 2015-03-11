@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-
+  before_filter :require_login, :except => [:index, :show]
   def index
     @restaurants = Restaurant.all
 
@@ -41,16 +41,15 @@ class RestaurantsController < ApplicationController
 
   def update
     @restaurant = Restaurant.find(params[:id])
-
     if @restaurant.update(restaurant_params)
-      redirect_to @restaurant
+        redirect_to @restaurant
     else
-      render 'edit'
+        render 'edit'
     end
   end
 
 
-#todo  
+#todo
   def destroy
   end
 
@@ -60,4 +59,8 @@ private
     params.require(:restaurant).permit(:name, :type, :pricerange, :description)
   end
 
+  def not_authenticated
+    redirect_to login_url, :alert => "First log in to view ↵
+    this page."
+  end
 end

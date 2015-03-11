@@ -33,10 +33,10 @@ class RestaurantsController < ApplicationController
 # =======
 #     @restaurant = Restaurant.find(params[:id])
 # >>>>>>> d873221faeff1c38450716a24db6f335d638adcb
-@restaurant = Restaurant.update_attributes(restaurant_params)
-    if @restaurant.update(restaurant_params)
+  @restaurant = Restaurant.find(params[:id])
+  if @restaurant.update(restaurant_params)
       redirect_to @restaurant
-    else
+  else
       render 'edit'
     end
   end

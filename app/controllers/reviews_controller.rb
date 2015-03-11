@@ -20,11 +20,11 @@ class ReviewsController < ApplicationController
 
 #optional since we are showing the reviews on the restaurant page
   def index
-    @restaurants = Review.all
+    @reviews = Review.all
   end
 
   def show
-    @restaurant = Restaurant.find(params[:id])
+    @review = Restaurant.find(params[:id])
   end
 
   def destroy
@@ -35,6 +35,5 @@ private
   def review_params
     params.require(:review).permit(:review, :rating, :totalbill, :title)
   end
-
 
 end

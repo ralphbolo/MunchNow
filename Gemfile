@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
-
+#things Ralph added
+#for users 
+gem "sorcery"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
@@ -40,4 +42,3 @@ gem 'bootstrap-sass', '~> 3.2.0'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-

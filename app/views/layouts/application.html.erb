@@ -7,6 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<!-- Including Header on all pages -->
+<%= render "layouts/header" %>
+
   <div id="nav">
       <% if current_user %>
         <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
@@ -21,6 +25,9 @@
       <p id="alert"><%= flash[:alert] %></p>
     </div>
 <%= yield %>
+
+<!-- Including Header on all pages -->
+<%= render "layouts/footer" %>
 
 </body>
 </html>

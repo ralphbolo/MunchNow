@@ -1,0 +1,8 @@
+.border-round{
+	padding: 20px;
+	border: 1px solid;
+	border-radius: 20px;
+}
+.underline{
+	border-bottom: 1px solid;
+}

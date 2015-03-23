@@ -1,3 +1,4 @@
 class MenuItem < ActiveRecord::Base
-	validates_pressence_of name:
+	belongs_to :restaurant
+	
 end

@@ -1,13 +1,16 @@
 class ReviewsController < ApplicationController
 
   def new
+    @user = current_user
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review = @restaurant.reviews.new
   end
 
   def create
+    @user = current_user
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review = @restaurant.reviews.create(review_params)
+    @review.user_id = current_user.id
 
     if @review.save
       redirect_to @restaurant
@@ -26,11 +29,11 @@ class ReviewsController < ApplicationController
 
 #optional since we are showing the reviews on the restaurant page
   def index
-    @reviews = Review.all
+    #@reviews = Review.all
   end
 
   def show
-    @review = Restaurant.find(params[:id])
+    #@review = Restaurant.find(params[:id])
   end
 
   def destroy

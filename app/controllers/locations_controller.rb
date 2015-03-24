@@ -9,7 +9,7 @@ class LocationsController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
     @location = @restaurant.locations.create(location_params)
 
-    if @menu_item.save
+    if @location.save
       redirect_to @restaurant
     else 
       render 'new'

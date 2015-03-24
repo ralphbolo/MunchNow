@@ -1,2 +1,23 @@
 <h1>Locations#new</h1>
 <p>Find me in app/views/locations/new.html.erb</p>
+
+<h1>Create a location for<h2>
+
+<p>Current restaurant: <%= @restaurant.name %></p>
+
+
+<%= form_for [@restaurant, @location]  do |f| %>
+<div>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+</div>
+<div>
+  <%= f.label :opentime %>
+  <%= f.time_field :opentime %>
+</div>
+<div>
+  <%= f.label :closetime %>
+  <%= f.time_field :closetime %>
+</div>
+<%= f.submit %>
+<% end %>

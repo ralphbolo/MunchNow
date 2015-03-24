@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-
-  get 'locations/new'
-
   root 'restaurants#index'
 
   resources :restaurants do

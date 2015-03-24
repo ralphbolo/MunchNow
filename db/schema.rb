@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150323010810) do
+ActiveRecord::Schema.define(version: 20150324231206) do
 
   create_table "locations", force: true do |t|
     t.string   "address"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20150323010810) do
 
   create_table "menu_items", force: true do |t|
     t.string   "name"
-    t.decimal  "price"
+    t.float    "price"
     t.text     "description"
     t.string   "category"
     t.datetime "created_at"

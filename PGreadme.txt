@@ -20,7 +20,7 @@ Note to Chris:	to setup postgreSQL locally
 	$ su - postgres 
 	$ psql template1
 	template1=# CREATE USER HOME;
-	template1=# GRANT ALL PRIVILEGES ON DATABASE "munchnow_development" to [your mac's user name, Case matters, ie the shit before $ on your terminal, just the name];
+	template1=# GRANT ALL PRIVILEGES ON DATABASE "munchnow_development" to HOME;
 	template1=# \q
 
 3. Start the database

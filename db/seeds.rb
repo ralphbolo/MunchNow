@@ -5,3 +5,69 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+#at least 15 raters(users), 
+User.create(email: 'mike@gmail.com', 
+						password: '123456', 
+						password_confirmation: '123456')
+
+User.create(email: 'chris@test.com', 
+						password: '123456', 
+						password_confirmation: '123456')
+
+User.create(email: 'ralph@test.com', 
+						password: '123456', 
+						password_confirmation: '123456')
+
+User.create(email: 'ziyad@test.com', 
+						password: '123456', 
+						password_confirmation: '123456')
+
+User.create(email: 'somedumbass@test.com', 
+						password: '123456', 
+						password_confirmation: '123456')
+
+User.create(email: '50cent@test.com', 
+						password: '123456', 
+						password_confirmation: '123456')
+
+User.create(email: 'avicii@test.com', 
+						password: '123456', 
+						password_confirmation: '123456')
+
+User.create(email: 'celine@test.com', 
+						password: '123456', 
+						password_confirmation: '123456')
+
+User.create(email: 'zuck@test.com', 
+						password: '123456', 
+						password_confirmation: '123456')
+
+User.create(email: 'fatass@test.com', 
+						password: '123456', 
+						password_confirmation: '123456')
+
+User.create(email: 'test@test.com', 
+						password: '123456', 
+						password_confirmation: '123456')
+
+User.create(email: 'mike@test.com', 
+						password: '123456', 
+						password_confirmation: '123456')
+
+User.create(email: 'ali@test.com', 
+						password: '123456', 
+						password_confirmation: '123456')
+
+User.create(email: 'drew@test.com', 
+						password: '123456', 
+						password_confirmation: '123456')
+
+User.create(email: 'justin@test.com', 
+						password: '123456', 
+						password_confirmation: '123456')
+# at least a total of 40 menuitems (MenuItem) in db
+
+#at least 12 restaurants (Restaurant)
+
+#each restaurants has 8 ratings (Review), total rating (review) count is 96

@@ -1,4 +1,3 @@
 class Location < ActiveRecord::Base
-
-	validates_pressence_of address:
+	validates :address, presence: true
 end

@@ -1,4 +1,5 @@
 class Review < ActiveRecord::Base
 	belongs_to :restaurant
-	validates :title, :review, :rating, presence: true
+	belongs_to :user
+	#validates :title, :review, :rating, presence: true
 end

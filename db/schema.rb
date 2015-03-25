@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311005805) do
+ActiveRecord::Schema.define(version: 20150324231206) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "locations", force: true do |t|
     t.string   "address"
@@ -19,16 +22,22 @@ ActiveRecord::Schema.define(version: 20150311005805) do
     t.time     "closetime"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "restaurant_id"
   end
+
+  add_index "locations", ["restaurant_id"], name: "index_locations_on_restaurant_id", using: :btree
 
   create_table "menu_items", force: true do |t|
     t.string   "name"
-    t.decimal  "price"
+    t.float    "price"
     t.text     "description"
     t.string   "category"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "restaurant_id"
   end
+
+  add_index "menu_items", ["restaurant_id"], name: "index_menu_items_on_restaurant_id", using: :btree
 
   create_table "restaurants", force: true do |t|
     t.string   "name"
@@ -47,9 +56,11 @@ ActiveRecord::Schema.define(version: 20150311005805) do
     t.datetime "updated_at"
     t.string   "title"
     t.integer  "restaurant_id"
+    t.integer  "user_id"
   end
 
-  add_index "reviews", ["restaurant_id"], name: "index_reviews_on_restaurant_id"
+  add_index "reviews", ["restaurant_id"], name: "index_reviews_on_restaurant_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",            null: false
@@ -59,6 +70,6 @@ ActiveRecord::Schema.define(version: 20150311005805) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end

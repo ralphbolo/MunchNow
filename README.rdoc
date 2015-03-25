@@ -23,6 +23,17 @@ Things you may want to cover:
 
 * ...
 
+Resources
+
+Migrating from SQLlite3 to PG
+http://railscasts.com/episodes/342-migrating-to-postgresql?view=asciicast
+
+Data Integrity
+http://www.bignerdranch.com/blog/coding-rails-with-data-integrity-part-3/
+
+SQL queries
+http://apidock.com/rails/v4.0.2/ActiveRecord/Querying/find_by_sql
+
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.

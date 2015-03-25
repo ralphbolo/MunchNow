@@ -1,16 +1,16 @@
 class ReviewsController < ApplicationController
 
   def new
-    @user = current_user
+    @user = current_user #pretty sure we dont need this
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review = @restaurant.reviews.new
   end
 
   def create
-    @user = current_user
+    @user = current_user #pretty sure we dont need this
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review = @restaurant.reviews.create(review_params)
-    @review.user_id = current_user.id
+    @review.user_id = current_user.id #refactor this?
 
     if @review.save
       redirect_to @restaurant

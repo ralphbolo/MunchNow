@@ -3,11 +3,17 @@
     <div class="col-xs-2"> 
         <!-- Query -->
         <div>
-          <%= render 'query' %>
+        
         </div>
     </div>
+
+    <!-- Passing variables to be queried against -->
+
     <div>
       <%= form_tag restaurants_path, :method => 'get' do %>
+
+        <h2>Name</h2>
+          <%= text_field_tag :name %>
 
         <h2>Food Prices</h2>
           <%= label(:price_low, "Low priced food")%>

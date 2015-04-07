@@ -6,8 +6,18 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new
     @restaurants = Restaurant.all
 
-    if params[:pricerange] == nil
-      puts "no price range indicated"
+    if (params[:pricerange] == nil and params[:name] == nil)
+      puts "no price range indicated or name"
+    elsif (params[:pricerange] == nil and params[:name] != nil)
+
+      puts "no price range indicated, name indicated"
+      puts "*******************    **********************"
+      puts "checking name"
+      puts params[:name]
+      @restaurants = Restaurant.where(
+        ["name = ?", params[:name]]
+        )
+
     else
       puts "*******************vhbvmbnvvbcbvc* **********************"
       puts "checking pricerange"

@@ -69,13 +69,13 @@ User.create(email: 'justin@test.com',
 
 Restaurant.create(
 	name: 'Viviano', 
-	#type: 'italian', 
+	restaurant_type: 'italian',
 	pricerange: 'low-priced-food',
 	description: 'an old world restaurant')
 
 Restaurant.create(
 	name: 'Yakiboyz', 
-	#type: 'italian', 
+	restaurant_type: 'italian',
 	pricerange: 'medium-priced-food',
 	description: 'an modern world restaurant')
 # restaurant populating

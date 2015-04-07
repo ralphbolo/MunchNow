@@ -2,7 +2,10 @@ class CreateRestaurants < ActiveRecord::Migration
   def change
     create_table :restaurants do |t|
       t.string :name
-      t.string :type
+
+      # Changed type to restaurant_type
+      t.string :restaurant_type
+      
       t.string :pricerange
       t.text :description
 

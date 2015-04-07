@@ -2,29 +2,41 @@ class RestaurantsController < ApplicationController
   before_filter :require_login, :except => [:index, :show]
   def index
 
-    puts "******************************************"
-    @restaurant = Restaurant.new
+    puts "*******************    ***********************"
     @restaurants = Restaurant.all
 
+    # Neither price range or name
     if (params[:pricerange] == nil and params[:name] == nil)
-      puts "no price range indicated or name"
+      puts "no pricerange indicated. No name indicated"
+    # No pricerange, name indicated
     elsif (params[:pricerange] == nil and params[:name] != nil)
-
-      puts "no price range indicated, name indicated"
-      puts "*******************    **********************"
+      puts "no pricerange indicated, name indicated"
       puts "checking name"
       puts params[:name]
       @restaurants = Restaurant.where(
         ["name = ?", params[:name]]
         )
-
-    else
-      puts "*******************vhbvmbnvvbcbvc* **********************"
+    # Pricerange indicated, no name
+    elsif (params[:pricerange] != nil and params[:name] == nil)
+      puts "pricerange indicated, no name indicated"
       puts "checking pricerange"
       puts params[:pricerange]
       @restaurants = Restaurant.where(
         ["pricerange = ?", params[:pricerange]]
         )
+    # Pricerange and name
+    elsif (params[:pricerange] != nil and params[:name] != nil)
+      puts "Pricerange indicated, name indicated"
+      puts "Checking Pricerange and name"
+      puts params[:pricerange]
+      puts params[:name]
+      @restaurants = Restaurant.where(
+        ["pricerange = ? and name = ?", params[:pricerange], params[:name]
+      ]
+        )
+
+
+
     end
 
     # if price (var x) is passed
@@ -72,7 +84,7 @@ class RestaurantsController < ApplicationController
 private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :type, :pricerange, :description)
+    params.require(:restaurant).permit(:name, :restaurant_type, :pricerange, :description)
   end
 
   def not_authenticated

@@ -66,6 +66,21 @@ User.create(email: 'drew@test.com',
 User.create(email: 'justin@test.com', 
 						password: '123456', 
 						password_confirmation: '123456')
+
+Restaurant.create(
+	name: 'Viviano', 
+	#type: 'italian', 
+	pricerange: 'low-priced-food',
+	description: 'an old world restaurant')
+
+Restaurant.create(
+	name: 'Yakiboyz', 
+	#type: 'italian', 
+	pricerange: 'medium-priced-food',
+	description: 'an modern world restaurant')
+# restaurant populating
+
+
 # at least a total of 40 menuitems (MenuItem) in db
 
 #at least 12 restaurants (Restaurant)

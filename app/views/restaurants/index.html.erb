@@ -6,6 +6,24 @@
           <%= render 'query' %>
         </div>
     </div>
+    <div>
+      <%= form_tag restaurants_path, :method => 'get' do %>
+
+        <h2>Food Prices</h2>
+          <%= label(:price_low, "Low priced food")%>
+          <%= radio_button_tag(:pricerange, "low-priced-food") %>
+          <br>
+          <%= label(:price_medium, "Medium priced food")%>
+          <%= radio_button_tag(:pricerange, "medium-priced-food") %>
+          <br>
+          <%= label(:price_high, "High priced food")%>
+          <%= radio_button_tag(:pricerange, "high-priced-food") %>
+
+        <div><%= submit_tag "Search" %></div>
+
+
+      <% end %>
+    </div>
     <div class="col-xs-8">
 
       <h1>Listing restaurants</h1>

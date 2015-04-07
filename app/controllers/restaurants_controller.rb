@@ -5,8 +5,15 @@ class RestaurantsController < ApplicationController
     puts "*******************    ***********************"
     @restaurants = Restaurant.all
 
+    if params[:search] != nil
+
+      puts "General Keyword search"
+      @restaurants = Restaurant.where(
+        ["name LIKE ?", "%#{params[:search]}%"]
+      )
+
     # Neither price range or name
-    if (params[:pricerange] == nil and params[:name] == nil)
+    elsif (params[:pricerange] == nil and params[:name] == nil)
       puts "no pricerange indicated. No name indicated"
     # No pricerange, name indicated
     elsif (params[:pricerange] == nil and params[:name] != nil)
@@ -31,18 +38,9 @@ class RestaurantsController < ApplicationController
       puts params[:pricerange]
       puts params[:name]
       @restaurants = Restaurant.where(
-        ["pricerange = ? and name = ?", params[:pricerange], params[:name]
-      ]
-        )
-
-
-
+        ["pricerange = ? and name = ?", params[:pricerange], params[:name]]  
+      )
     end
-
-    # if price (var x) is passed
-    #     find restaurants with x
-    #     Select
-
   end
 
   def show

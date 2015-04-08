@@ -8,6 +8,29 @@
 			<p>Name:<%= @restaurant.name %></p>
 			<p>Pricing:<%= @restaurant.pricerange %></p>
 			<p>Description:<%= @restaurant.description %></p>
+
+			<!-- Relations -->
+			<h4><strong>Location:<%	 @restaurant.locations.each do |location| %></strong></h4>
+			<!-- For conversions -->
+				<%
+				 tempOpenT = location.opentime
+				 tempCloseT = location.closetime
+
+				 puts "**********************"
+				 puts "#{tempOpenT.hour}" + ":" + "#{tempOpenT.min}"
+				 puts tempCloseT
+
+
+				 %>
+				 <div>
+	              <p>Address: <%= location.address %></p>
+	              <p>Open Time: <%= location.opentime.hour %></p>
+
+	              <p>Close Time: <%= location.closetime %></p>
+	              <p>Last Updated: <%= location.updated_at %></p>
+	            </div>
+
+          	<% end %>
 		</div>
 		
 	</div>

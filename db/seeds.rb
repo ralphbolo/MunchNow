@@ -19,11 +19,11 @@ User.create(email: 'ralph@test.com',
 						password: '123456', 
 						password_confirmation: '123456')
 
-User.create(email: 'ziyad@test.com', 
+User.create(email: 'zeyad@test.com', 
 						password: '123456', 
 						password_confirmation: '123456')
 
-User.create(email: 'somedumbass@test.com', 
+User.create(email: 'nick@test.com', 
 						password: '123456', 
 						password_confirmation: '123456')
 
@@ -39,19 +39,19 @@ User.create(email: 'celine@test.com',
 						password: '123456', 
 						password_confirmation: '123456')
 
-User.create(email: 'zuck@test.com', 
+User.create(email: 'zack@test.com', 
 						password: '123456', 
 						password_confirmation: '123456')
 
-User.create(email: 'fatass@test.com', 
+User.create(email: 'emil@test.com', 
 						password: '123456', 
 						password_confirmation: '123456')
 
-User.create(email: 'test@test.com', 
+User.create(email: 'alphy@test.com', 
 						password: '123456', 
 						password_confirmation: '123456')
 
-User.create(email: 'mike@test.com', 
+User.create(email: 'quag@test.com', 
 						password: '123456', 
 						password_confirmation: '123456')
 
@@ -67,17 +67,27 @@ User.create(email: 'justin@test.com',
 						password: '123456', 
 						password_confirmation: '123456')
 
-Restaurant.create(
-	name: 'Viviano', 
+# Restaurants (8) and locations
+temp = Restaurant.create(
+	name: 'North and Navy', 
 	restaurant_type: 'Italian',
-	pricerange: 'low-priced-food',
-	description: 'an old world restaurant')
+	pricerange: 'high-priced-food',
+	description: '"Our menu is inspired by tradition and dictated by the quality and availability of ingredients. We play off the similarities between the climates of Eastern Ontario and Northeast Italy, and create our take on classic dishes made with seasonal game, seafood and vegetables. Plus, sometimes we’ll just add whatever we want."')
+	
+temp.locations.create(:address => "226 Nepean St", :opentime => "11:00", :closetime => "22:00")
+
 
 Restaurant.create(
 	name: 'Yakiboyz', 
 	restaurant_type: 'Italian',
 	pricerange: 'medium-priced-food',
 	description: 'an modern world restaurant')
+
+
+# Location.create(
+# 	restaurant_id: 1)
+
+
 # restaurant populating
 
 

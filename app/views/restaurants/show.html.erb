@@ -5,9 +5,59 @@
 			<h3>PICTURE + INFORMATION (DATE, PHONE, LOCATION) GOES HERE</h3>
 		</div>
 		<div class="col-md-6">
+			<p>Restaurant ID: <%= @restaurant.id %></p>
 			<p>Name:<%= @restaurant.name %></p>
 			<p>Pricing:<%= @restaurant.pricerange %></p>
 			<p>Description:<%= @restaurant.description %></p>
+
+			<!-- Relations -->
+			<h4><strong>Locations:<%	 @restaurant.locations.each do |location| %></strong></h4>
+			<!-- For conversions of time -->
+			<!-- TODO -->
+				<%
+				 tempOpenT = location.opentime
+				 tempCloseT = location.closetime
+
+				 puts "**********************"
+				 puts "#{tempOpenT.hour}" + ":" + "#{tempOpenT.min}"
+				 puts tempCloseT
+
+				 %>
+				 <div>
+	              <p>Address: <%= location.address %></p>
+	              <p>Open Time: <%= location.opentime.hour %></p>
+
+	              <p>Close Time: <%= location.closetime %></p>
+	              <p>Last Updated: <%= location.updated_at %></p>
+	            </div>
+
+          	<% end %>
+
+          	<!-- Menu Items -->
+          	<h4><strong>Menu Items:<% @restaurant.menu_items.each do |menu_item| %></strong></h4>
+
+          		<div>
+          			 <p>Name: <%= menu_item.name %></p>
+          			 <p>Price: <%= menu_item.price %></p>
+          			 <p>Description: <%= menu_item.description %></p>
+          			 <p>Category: <%= menu_item.category %></p>
+          		</div>
+
+          	<% end %>
+
+          	<!-- Reviews -->
+          	<h4><strong>Reviews:<% @restaurant.reviews.each do |review| %></strong></h4>
+
+          		<div>
+          			<p>Title: <%= review.title %></p>
+          			<p>Review: <%= review.review %></p>
+          			<p>Rating: <%= review.rating %></p>
+          			<p>Total Bill: <%= review.totalbill %></p>
+          			<p>Last updated: <%= review.updated_at %></p>
+          			<p>UserID: <%= review.user_id %></p>
+          		</div>
+
+          	<% end %>
 		</div>
 		
 	</div>

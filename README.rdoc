@@ -37,3 +37,14 @@ http://apidock.com/rails/v4.0.2/ActiveRecord/Querying/find_by_sql
 
 Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
+
+YOU SHOULD NOTE
+
+Ratings are from 0 (minimum) to 5 (maximum)
+
+Options for the categories of menu items are...
+
+*Side
+*Appetizer
+*Main
+*Beverage

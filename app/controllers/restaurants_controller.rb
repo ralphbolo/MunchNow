@@ -1,8 +1,49 @@
 class RestaurantsController < ApplicationController
   before_filter :require_login, :except => [:index, :show]
   def index
+
+    puts "*******************    ***********************"
+    puts params[:spec]
+    puts params[:name]
+    puts params[:pricerange]
     @restaurants = Restaurant.all
 
+    if params[:spec] != ""
+
+      puts "General Keyword search"
+      @restaurants = Restaurant.where(
+        ["name LIKE ?", "%#{params[:spec]}%"]
+      )
+
+    # Neither price range or name
+    elsif (params[:pricerange] == nil and params[:name] == "")
+      puts "no pricerange indicated. No name indicated"
+    # No pricerange, name indicated
+    elsif (params[:pricerange] == nil and params[:name] != "")
+      puts "no pricerange indicated, name indicated"
+      puts "checking name"
+      puts params[:name]
+      @restaurants = Restaurant.where(
+        ["name = ?", params[:name]]
+        )
+    # Pricerange indicated, no name
+    elsif (params[:pricerange] != nil and params[:name] == "")
+      puts "pricerange indicated, no name indicated"
+      puts "checking pricerange"
+      puts params[:pricerange]
+      @restaurants = Restaurant.where(
+        ["pricerange = ?", params[:pricerange]]
+        )
+    # Pricerange and name
+    elsif (params[:pricerange] != nil and params[:name] != "")
+      puts "Pricerange indicated, name indicated"
+      puts "Checking Pricerange and name"
+      puts params[:pricerange]
+      puts params[:name]
+      @restaurants = Restaurant.where(
+        ["pricerange = ? and name = ?", params[:pricerange], params[:name]]  
+      )
+    end
   end
 
   def show
@@ -44,7 +85,7 @@ class RestaurantsController < ApplicationController
 private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :type, :pricerange, :description)
+    params.require(:restaurant).permit(:name, :restaurant_type, :pricerange, :description)
   end
 
   def not_authenticated

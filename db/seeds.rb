@@ -12,105 +12,196 @@ temp = User.create(email: 'mike@gmail.com',
 						password_confirmation: '123456')
 
 # Ratings from this user
-temp.reviews.create(:review => "body of review goes here", :rating => 5.0, :totalbill => 30.5, :title => "Great Northern Italian Cuisine!", :restaurant_id => 12)
+temp.reviews.create(:review => "It's a pretty good place to be considering the fact that it's situated in in a quiet neighborhood, away from the main street in little Italy.", :rating => 5.0, :totalbill => 30.5, :title => "Great Northern Italian Cuisine!", :restaurant_id => 12)
+temp.reviews.create(:review => "The place is actually a small convenience store that's also a residence, but it's nevertheless charming. The menu board was difficult to read and looking at all of the other customers, it would seem that nearly everyone here is a regular and won't need it.", :rating => 4.0, :totalbill => 30.5, :title => "Past could have been better", :restaurant_id => 10)
+temp.reviews.create(:review => " despite the number of combos they offered, in the end you can customize it yourself.", :rating => 5.0, :totalbill => 302.5, :title => "Mama Mia", :restaurant_id => 9)
+temp.reviews.create(:review => "When I first walked in I was hapily greeted by one of the workers behind the counter ", :rating => 3.0, :totalbill => 3.5, :title => "Luigi tho", :restaurant_id => 8)
+temp.reviews.create(:review => "it was a pleasant first impression", :rating => 3.0, :totalbill => 33.5, :title => "In b4 mario comes in", :restaurant_id => 7)
+temp.reviews.create(:review => "The cashier was also extremely nice as well", :rating => 3.0, :totalbill => 34.5, :title => "8 inch sndwich for $5", :restaurant_id => 6)
+temp.reviews.create(:review => "The sandwich itself was, first off, a big meal for such a cheap price", :rating => 5.0, :totalbill => 36.5, :title => "Price increase", :restaurant_id => 5)
+temp.reviews.create(:review => "Personally it's not my cup of tea", :rating => 3.0, :totalbill => 33.5, :title => "Best wings too!", :restaurant_id => 4)
+temp.reviews.create(:review => "Obviously one of the best in the city...", :rating => 2.0, :totalbill => 12.5, :title => "Prosciutto-licious", :restaurant_id => 3)
+temp.reviews.create(:review => "My go-to place for consistently great Italian-style deli sandwiches", :rating => 1.0, :totalbill => 42.5, :title => "The best", :restaurant_id => 2)
+temp.reviews.create(:review => "Much wow", :rating => 2.0, :totalbill => 50.5, :title => "Beautiful Italian Food", :restaurant_id => 1)
 
 temp = User.create(email: 'chris@test.com', 
 						password: '123456', 
 						password_confirmation: '123456')
 
 # Ratings from this user
-temp.reviews.create(:review => "body of review goes here", :rating => 4.5, :totalbill => 50.0, :title => "Italian at its best!", :restaurant_id => 12)
+temp.reviews.create(:review => "Went to Whalesbone (take-out location) today as my friend mentioned they have a special (affordable) lunchtime menu", :rating => 4.0, :totalbill => 50.0, :title => "Overpriced mediocrity. Stop drinking the coolaid", :restaurant_id => 12)
+temp.reviews.create(:review => "So yesterday was tax day", :rating => 4.5, :totalbill => 40.0, :title => "Hefty prices but oh so good", :restaurant_id => 11)
+temp.reviews.create(:review => "Thought fish would be good for the brain", :rating => 4.5, :totalbill => 60.0, :title => "I kick myself if I don't get the brown-bag lunch at least once a week", :restaurant_id => 10)
+temp.reviews.create(:review => "In the past, we have also enjoyed the smoked fish sandwiches, which are lighter, and super flavourful.", :rating => 3.5, :totalbill => 50.0, :title => "Mobile review", :restaurant_id => 9)
+temp.reviews.create(:review => "Well the Whalesbone Oyster House is my fav", :rating => 2.5, :totalbill => 20.0, :title => "Large catch of the day!", :restaurant_id => 8)
+temp.reviews.create(:review => "La couleur un peu tristounette de la chaudrée ", :rating => 1.5, :totalbill => 34.0, :title => "Best fish supply in Ottawa!", :restaurant_id => 7)
+temp.reviews.create(:review => "The food was amazing.", :rating => 4.5, :totalbill => 21.0, :title => "My favourite lunch in the city", :restaurant_id => 6)
+temp.reviews.create(:review => " had a 3 oyster sandwich ($12), a reg chowder ($5).", :rating => 2.5, :totalbill => 80.0, :title => "Yummy lunch spot!", :restaurant_id => 5)
+temp.reviews.create(:review => "My philosophy is good food at a reasonable price.", :rating => 4.5, :totalbill => 21.0, :title => "Yummy fish sandwiches", :restaurant_id => 4)
+temp.reviews.create(:review => "My boyfriend and I recently had dinner and it blew us away", :rating => 4.5, :totalbill => 12.0, :title => "Whalesbone sammich bag", :restaurant_id => 3)
+temp.reviews.create(:review => "The atmosphere was lively, the food was different and delicious and the service was perfect.", :rating => 4.1, :totalbill => 88.0, :title => "Ottawa Magazine!", :restaurant_id => 2)
+temp.reviews.create(:review => "What a great addition to the food scene in downtown Ottawa!", :rating => 4.5, :totalbill => 66.0, :title => "Best best best lunch in town", :restaurant_id => 1)
 
 temp = User.create(email: 'ralph@test.com', 
 						password: '123456', 
 						password_confirmation: '123456')
 
 # Ratings from this user
-temp.reviews.create(:review => "body of review goes here", :rating => 5.0, :totalbill => 40.0, :title => "Going back for more!", :restaurant_id => 12)
+temp.reviews.create(:review => "body of review goes here", :rating => 5.0, :totalbill => 41.0, :title => "Going back for more!", :restaurant_id => 12)
+temp.reviews.create(:review => "I recently had the pleasure to engage in a magnificent culinary experience at the hands of the brilliant West de Castro.", :rating => 3.0, :totalbill => 45.0, :title => "The Domestic Blonde", :restaurant_id => 11)
+temp.reviews.create(:review => "bonne dose de chance et Clover ", :rating => 2.0, :totalbill => 21.0, :title => "Going back for more!, not!", :restaurant_id => 10)
+temp.reviews.create(:review => "I have eaten at clover 3 times now ", :rating => 3.0, :totalbill => 15.0, :title => "Great experience", :restaurant_id => 9)
+temp.reviews.create(:review => "Had the Sweet Potato, wwas meh", :rating => 2.0, :totalbill => 16.0, :title => "desire to inspire", :restaurant_id => 8)
+temp.reviews.create(:review => "She had the Grilled Romaine", :rating => 4.0, :totalbill => 18.0, :title => "Montreal Food Pictures", :restaurant_id => 7)
+temp.reviews.create(:review => "Great food, wonderful flavours and great services.", :rating => 4.0, :totalbill => 19.0, :title => "Ottawa Citizen", :restaurant_id => 6)
+temp.reviews.create(:review => "Service was friendly and thoughtf", :rating => 4.0, :totalbill => 21.0, :title => "Yeezy told me to eat here", :restaurant_id => 5)
+temp.reviews.create(:review => "I had the daily special which was flank steak bison", :rating => 4.0, :totalbill => 54.0, :title => "Clover is an up ", :restaurant_id => 4)
+temp.reviews.create(:review => "upscale, quality food, reasonable prices. Give it a try.", :rating => 4.0, :totalbill => 412.0, :title => "Great New Restaurant on Bank St.", :restaurant_id => 3)
 
 temp = User.create(email: 'zeyad@test.com', 
 						password: '123456', 
 						password_confirmation: '123456')
 
 # Ratings from this user
-temp.reviews.create(:review => "body of review goes here", :rating => 4.0, :totalbill => 80.0, :title => "Worth the wait", :restaurant_id => 12)
+temp.reviews.create(:review => "My husband and I ordered and shared 5 dishes.", :rating => 2.0, :totalbill => 82.0, :title => "Worth the wait", :restaurant_id => 12)
+temp.reviews.create(:review => " All were bland and tasteless.", :rating => 1.0, :totalbill => 85.0, :title => "Worth the wait not!", :restaurant_id => 11)
+temp.reviews.create(:review => "started walking away from the group and muttered Fck my life ", :rating => 1.0, :totalbill => 40.0, :title => "Worth the wait", :restaurant_id => 10)
+temp.reviews.create(:review => "Very over priced, mediocre, food. It's 14-20$ just for a sushi roll, and they're not great -we couldn't even finish one of them there was so much sauce on it.", :rating => 1.0, :totalbill => 50.0, :title => "Worth the wait", :restaurant_id => 9)
+temp.reviews.create(:review => "Had brunch, just a simple eggs and meat breakfast.", :rating => 2.0, :totalbill => 67.0, :title => "Worth the wait", :restaurant_id => 8)
+temp.reviews.create(:review => "We went because we had a Groupon", :rating => 3.0, :totalbill => 53.0, :title => "Worth the wait", :restaurant_id => 7)
+temp.reviews.create(:review => " was disappointed ", :rating => 4.0, :totalbill => 12.0, :title => "Worth the wait", :restaurant_id => 6)
+temp.reviews.create(:review => "he baby buk choi were well cooked but not hot enough when they arrived.", :rating => 2.5, :totalbill => 65.0, :title => "Worth the wait", :restaurant_id => 5)
+temp.reviews.create(:review => " admit I tried this place because of a Groupon,", :rating => 2.5, :totalbill => 67.0, :title => "Worth the wait", :restaurant_id => 4)
+temp.reviews.create(:review => "What can I say? This is the second time I've had lunch here", :rating => 2.5, :totalbill => 12.0, :title => "Worth the wait", :restaurant_id => 3)
+temp.reviews.create(:review => "This has become one of my go to places", :rating => 3.5, :totalbill => 24.0, :title => "Worth the wait", :restaurant_id => 2)
+temp.reviews.create(:review => "The pork gyoza and the duck pancakes are some of my favourite. Even if it is just for an after work drink I enjoy going back here.", :rating => 1.0, :totalbill => 43.0, :title => "Worth the wait", :restaurant_id => 1)
 
 temp = User.create(email: 'nick@test.com', 
 						password: '123456', 
 						password_confirmation: '123456')
 
 # Ratings from this user
-temp.reviews.create(:review => "body of review goes here", :rating => 5.0, :totalbill => 70.0, :title => "Italian never tasted so good.", :restaurant_id => 12)
+temp.reviews.create(:review => "After being seated for one second, the waiter was already asking for my drink order.", :rating => 5.0, :totalbill => 76.0, :title => "Not bad at all!", :restaurant_id => 12)
+temp.reviews.create(:review => ". The two measly pieces of jerk chicken", :rating => 4.5, :totalbill => 54.0, :title => "Zuuchini", :restaurant_id => 11)
+temp.reviews.create(:review => "The juices had totally escaped and the pieces were left hard and dry", :rating => 4.5, :totalbill => 100.0, :title => "Not just great food, but awesome service", :restaurant_id => 10)
+temp.reviews.create(:review => "Either we were really unlucky or people who came here never had proper BBQ", :rating => 4.5, :totalbill => 170.0, :title => "Mac N Cheese is a must have!", :restaurant_id => 9)
+temp.reviews.create(:review => "The smoked tofu is a delicious treat ", :rating => 5.0, :totalbill => 270.0, :title => "please add drinks to your online menu", :restaurant_id => 8)
+temp.reviews.create(:review => "Friends did not recommend it but I decided to try it anyways.", :rating => 3.0, :totalbill => 30.0, :title => "Best pulled pork sandwich.", :restaurant_id => 7)
+temp.reviews.create(:review => "Service was ok", :rating => 5.0, :totalbill => 69.0, :title => "Good Food but Poor Service", :restaurant_id => 6)
+temp.reviews.create(:review => "Food sucked. ", :rating => 3.0, :totalbill => 98.0, :title => "expensive but good", :restaurant_id => 5)
+temp.reviews.create(:review => "One thing is for certain that you may not have known before your first bite of pork ", :rating => 5.0, :totalbill => 40.0, :title => "Ho Hum...", :restaurant_id => 4)
+temp.reviews.create(:review => "I wouldn't call myself a BBQ person", :rating => 5.0, :totalbill => 40.0, :title => "not good", :restaurant_id => 3)
+temp.reviews.create(:review => "The SmoQue Shack is a must go.", :rating => 5.0, :totalbill => 23.0, :title => "Don't get it", :restaurant_id => 2)
+temp.reviews.create(:review => "The Smoque Shack was always a place I wanted to try out ever since it opened", :rating => 5.0, :totalbill => 12.0, :title => "You don't need to be a meat eater to love The Smoque Shack", :restaurant_id => 1)
+
+
+
 
 temp = User.create(email: '50cent@test.com', 
 						password: '123456', 
 						password_confirmation: '123456')
 
 # Ratings from this user
-temp.reviews.create(:review => "body of review goes here", :rating => 4.0, :totalbill => 90.0, :title => "Atmosphere...", :restaurant_id => 12)
+temp.reviews.create(:review => "I don't know if the staff even realize that they are in the service industry.", :rating => 4.0, :totalbill => 190.0, :title => "Atmosphere...", :restaurant_id => 12)
+temp.reviews.create(:review => "The appetizers were exceptional", :rating => 2.0, :totalbill => 9.0, :title => "Watt overprice", :restaurant_id => 11)
+temp.reviews.create(:review => " 2 of us ordered the seared scallops and 2 ordered the mussels", :rating => 2.0, :totalbill => 23.0, :title => "Tofu Burger", :restaurant_id => 10)
+temp.reviews.create(:review => "I waited for 5min at the bar before the super polite waitress asked me, is there something I can get you?", :rating => 3.0, :totalbill => 45.0, :title => "Great food, great atmosphere", :restaurant_id => 9)
+temp.reviews.create(:review => "This is now my top choice for late night drinks in the Market", :rating => 4.0, :totalbill => 67.0, :title => "Mr. Lew's Great Burger Search", :restaurant_id => 8)
+temp.reviews.create(:review => "Family of four. Two teenagers, two adults. We were there on a busy night.", :rating => 4.5, :totalbill => 12.0, :title => "Om Nom Nom International", :restaurant_id => 7)
+temp.reviews.create(:review => "It used to be good, but the burger today was sooo dry", :rating => 4.5, :totalbill => 80.0, :title => "Great spot, avoid peak hours", :restaurant_id => 6)
+temp.reviews.create(:review => "my favourite place in town & has been for quite some time", :rating => 4.5, :totalbill => 43.0, :title => "good food, good embiance, good price", :restaurant_id => 5)
+temp.reviews.create(:review => "Très bon menu du jour avec un saumon grillé.", :rating => 4.5, :totalbill => 21.0, :title => "Worth the WAIT!", :restaurant_id => 4)
+temp.reviews.create(:review => "absolutely fantastic burger.", :rating => 2.0, :totalbill => 45.0, :title => "salad dressing is crack cocaine.", :restaurant_id => 3)
+temp.reviews.create(:review => "Been there a million times.", :rating => 4.5, :totalbill => 55.0, :title => "Has potentil", :restaurant_id => 2)
+temp.reviews.create(:review => "Burgers are amazing & good fries, everything else stinks but if you want their burgers, I suggest take out", :rating => 4.0, :totalbill => 33.0, :title => "Highlight of Byward Market", :restaurant_id => 1)
 
 temp = User.create(email: 'avicii@test.com', 
 						password: '123456', 
 						password_confirmation: '123456')
 
 # Ratings from this user
-temp.reviews.create(:review => "body of review goes here", :rating => 5.0, :totalbill => 100.0, :title => "Could not have been better!", :restaurant_id => 12)
+temp.reviews.create(:review => "Dropped in for lunch last week", :rating => 5.0, :totalbill => 100.0, :title => "Could not have been better!", :restaurant_id => 12)
+temp.reviews.create(:review => " Not impressed. I had the angus steak sandwich for $11.95", :rating => 2.0, :totalbill => 120.0, :title => "Overrated", :restaurant_id => 11)
+temp.reviews.create(:review => "Love the food here, however the last two times we've gone they've forgotten our order completely.", :rating => 3.0, :totalbill => 150.0, :title => "Love the pastries!", :restaurant_id => 10)
+temp.reviews.create(:review => "Service from staff can be very good to very poor. ", :rating => 3.5, :totalbill => 20.0, :title => "Too expensive and very slow servers", :restaurant_id => 9)
+temp.reviews.create(:review => "Over priced and overrated.nothing is exceptionally good for the hype.", :rating => 4.0, :totalbill => 100.0, :title => "Not worth it", :restaurant_id => 8)
+temp.reviews.create(:review => "Was really good just like everything else here. The pulled-pork is house smoked", :rating => 3.0, :totalbill => 50.0, :title => "Worth the wait? Nnnyeaaah", :restaurant_id => 7)
+temp.reviews.create(:review => " had the meatball sandwich..fantastic! Fresh, savoury, delicious. Definitely will be back again", :rating => 2.5, :totalbill => 20.0, :title => "Mobile review", :restaurant_id => 6)
+temp.reviews.create(:review => " found it just ok, for all the hype its actually kind of pretentious and over priced...but that's what a lot of people in that community like", :rating => 5.0, :totalbill => 30.0, :title => "NO Inventory, staff not pleasant", :restaurant_id => 5)
+temp.reviews.create(:review => "Well made sandwiches and soups. I recommend getting there early on the weekends as their selections sell out. Pastries are divine but again, get there early!", :rating => 3.0, :totalbill => 120.0, :title => "E-town, It's Me Again!", :restaurant_id => 4)
+temp.reviews.create(:review => "Strange location, a little out of the way but SO WORTH IT. Everything they make is of the highest quality, from the sandwiches to desserts. Not a one stop deal - you will find yourself coming back for more:3", :rating => 4.0, :totalbill => 55.0, :title => "Not sure what the hype is about", :restaurant_id => 3)
+temp.reviews.create(:review => "ORGASMIC!!!", :rating => 4.0, :totalbill => 550.0, :title => "Pick up your viennoiserie, the GTFO.", :restaurant_id => 2)
+temp.reviews.create(:review => "This place will be my demise..", :rating => 3.0, :totalbill => 54.0, :title => "sugarandsaline", :restaurant_id => 1)
 
 temp = User.create(email: 'celine@test.com', 
 						password: '123456', 
 						password_confirmation: '123456')
 
 # Ratings from this user
-temp.reviews.create(:review => "body of review goes here", :rating => 4.5, :totalbill => 80.0, :title => "Mama-Mia!", :restaurant_id => 12)
+temp.reviews.create(:review => "Authentic mexican food without the high end prices", :rating => 4.5, :totalbill => 80.0, :title => "Mama-Mia!", :restaurant_id => 12)
+temp.reviews.create(:review => "Made a reservation days in advance for dinner with some friends ", :rating => 2.5, :totalbill => 54.0, :title => "Service is terrible", :restaurant_id => 11)
+temp.reviews.create(:review => "Not one of my absolute favourites in the area,", :rating => 4.5, :totalbill => 23.0, :title => "Cool little spot", :restaurant_id => 10)
+temp.reviews.create(:review => "Ahora is an underground Mexican restaurant located in the Byward Market ", :rating => 5.0, :totalbill => 54.0, :title => "Like it", :restaurant_id => 9)
+temp.reviews.create(:review => "I used to come to this place a lot for lunch and the service and food was much better than what it is now", :rating => 3.5, :totalbill => 43.0, :title => "Montreal Food Pictures", :restaurant_id => 8)
+temp.reviews.create(:review => "We dined on the Friday of labour day weekend and arrived at 6 pm", :rating => 4.5, :totalbill => 13.0, :title => "QUALITY DOWN THE DRAIN - HORRIBLE", :restaurant_id => 7)
+temp.reviews.create(:review => "This place didn't live up to its hype.", :rating => 2.5, :totalbill => 75.0, :title => "Picante not!", :restaurant_id => 6)
+temp.reviews.create(:review => "Can't say it enough - I love this place. ", :rating => 1.5, :totalbill => 35.0, :title => "Disappointed", :restaurant_id => 5)
+temp.reviews.create(:review => "I recently went to Ahora with a few friends based on the reviews ", :rating => 2.5, :totalbill => 32.0, :title => "Amazing", :restaurant_id => 4)
+temp.reviews.create(:review => "This place has a unique feel that no other food establishment has in Ottawa.", :rating => 3.5, :totalbill => 21.0, :title => "Horrendous Staff", :restaurant_id => 3)
+temp.reviews.create(:review => "Amazing food!! Best Mexican food I've ever had in ottawa", :rating => 4.5, :totalbill => 76.0, :title => "Feeling at home with Latin Flavours", :restaurant_id => 2)
+temp.reviews.create(:review => "Didn't like this place at all. The atmosphere is weird,", :rating => 4.5, :totalbill => 56.0, :title => "Nachos and plato ahora", :restaurant_id => 1)
 
 temp = User.create(email: 'zack@test.com', 
 						password: '123456', 
 						password_confirmation: '123456')
 
 # Ratings from this user
-temp.reviews.create(:review => "body of review goes here", :rating => 4.5, :totalbill => 60.0, :title => "Mmmmm...", :restaurant_id => 12)
+temp.reviews.create(:review => "Mike tyson told me to eat here, but ws disappointed", :rating => 2.5, :totalbill => 180.0, :title => "Weaaaak", :restaurant_id => 10)
+temp.reviews.create(:review => "Waaaaak", :rating => 2.5, :totalbill => 280.0, :title => "Waaaaak", :restaurant_id => 1)
+temp.reviews.create(:review => "its as if i had a feast fit for the gods", :rating => 4.5, :totalbill => 180.0, :title => "Amazing", :restaurant_id => 2)
 
 temp = User.create(email: 'emil@test.com', 
 						password: '123456', 
 						password_confirmation: '123456')
 
 # Ratings from this user
-temp.reviews.create(:review => "body of review goes here", :rating => 5.0, :totalbill => 70.0, :title => "Italian dining atmosphere", :restaurant_id => 12)
+temp.reviews.create(:review => "no comment", :rating =>2.0, :totalbill => 70.0, :title => "yolo dining atmosphere", :restaurant_id => 8)
+temp.reviews.create(:review => "In west vilanovia born and raised...... yea it was that good", :rating => 5.0, :totalbill => 70.0, :title => "Saw Will Smith 10/10", :restaurant_id => 11)
 
 temp = User.create(email: 'alphy@test.com', 
 						password: '123456', 
 						password_confirmation: '123456')
 
 # Ratings from this user
-temp.reviews.create(:review => "body of review goes here", :rating => 5.0, :totalbill => 75.0, :title => "Magnifique!", :restaurant_id => 12)
+temp.reviews.create(:review => "them wings tho, bomb. fries bomb. drinks bomb. girls ezzzz", :rating => 5.0, :totalbill => 175.0, :title => "Bomb!", :restaurant_id => 10)
 
 temp = User.create(email: 'quag@test.com', 
 						password: '123456', 
 						password_confirmation: '123456')
 
 # Ratings from this user
-temp.reviews.create(:review => "body of review goes here", :rating => 4.0, :totalbill => 80.0, :title => "Great service!", :restaurant_id => 12)
+temp.reviews.create(:review => "girls hit me up for a date", :rating => 4.0, :totalbill => 80.0, :title => "Great service!", :restaurant_id => 8)
 
 temp = User.create(email: 'ali@test.com', 
 						password: '123456', 
 						password_confirmation: '123456')
 
 # Ratings from this user
-temp.reviews.create(:review => "body of review goes here", :rating => 5.0, :totalbill => 100.0, :title => "Great selection of wine", :restaurant_id => 12)
+temp.reviews.create(:review => "wow, if chef ramsey and chef boyarde had a restaurant, it would be this ", :rating => 5.0, :totalbill => 120.0, :title => "Great selection of wine", :restaurant_id => 10)
 
 temp = User.create(email: 'drew@test.com', 
 						password: '123456', 
 						password_confirmation: '123456')
 
 # Ratings from this user
-temp.reviews.create(:review => "body of review goes here", :rating => 4.5, :totalbill => 70.0, :title => "Still craving more", :restaurant_id => 12)
+temp.reviews.create(:review => "Rick has a better restaurant, much disappointed", :rating => 1.5, :totalbill => 87.0, :title => "Still craving more McDonalds", :restaurant_id => 8)
 
 temp = User.create(email: 'justin@test.com', 
 						password: '123456', 
 						password_confirmation: '123456')
 
 # Ratings from this user
-temp.reviews.create(:review => "body of review goes here", :rating => 4.5, :totalbill => 90.0, :title => "Give me more!", :restaurant_id => 12)
+temp.reviews.create(:review => "asdfghjkm dnaskja fkajsdfnda fsd, Im drunk", :rating => 3.5, :totalbill => 90.0, :title => "Give me more!", :restaurant_id => 5)
 
 # Restaurants (8) and locations
 

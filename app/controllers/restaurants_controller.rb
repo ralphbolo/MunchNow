@@ -3,20 +3,23 @@ class RestaurantsController < ApplicationController
   def index
 
     puts "*******************    ***********************"
+    puts params[:spec]
+    puts params[:name]
+    puts params[:pricerange]
     @restaurants = Restaurant.all
 
-    if params[:search] != nil
+    if params[:spec] != ""
 
       puts "General Keyword search"
       @restaurants = Restaurant.where(
-        ["name LIKE ?", "%#{params[:search]}%"]
+        ["name LIKE ?", "%#{params[:spec]}%"]
       )
 
     # Neither price range or name
-    elsif (params[:pricerange] == nil and params[:name] == nil)
+    elsif (params[:pricerange] == nil and params[:name] == "")
       puts "no pricerange indicated. No name indicated"
     # No pricerange, name indicated
-    elsif (params[:pricerange] == nil and params[:name] != nil)
+    elsif (params[:pricerange] == nil and params[:name] != "")
       puts "no pricerange indicated, name indicated"
       puts "checking name"
       puts params[:name]
@@ -24,7 +27,7 @@ class RestaurantsController < ApplicationController
         ["name = ?", params[:name]]
         )
     # Pricerange indicated, no name
-    elsif (params[:pricerange] != nil and params[:name] == nil)
+    elsif (params[:pricerange] != nil and params[:name] == "")
       puts "pricerange indicated, no name indicated"
       puts "checking pricerange"
       puts params[:pricerange]
@@ -32,7 +35,7 @@ class RestaurantsController < ApplicationController
         ["pricerange = ?", params[:pricerange]]
         )
     # Pricerange and name
-    elsif (params[:pricerange] != nil and params[:name] != nil)
+    elsif (params[:pricerange] != nil and params[:name] != "")
       puts "Pricerange indicated, name indicated"
       puts "Checking Pricerange and name"
       puts params[:pricerange]

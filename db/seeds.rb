@@ -201,7 +201,7 @@ temp = User.create(email: 'justin@test.com',
 						password_confirmation: '123456')
 
 # Ratings from this user
-temp.reviews.create(:review => "asdfghjkm dnaskja fkajsdfnda fsd, Im drunk", :rating => 3.5, :totalbill => 90.0, :title => "Give me more!", :restaurant_id => 5)
+temp.reviews.create(:review => "that chicken really filled up my macros today, im telling all the bros to come here", :rating => 3.5, :totalbill => 90.0, :title => "Give me more!", :restaurant_id => 5)
 
 # Restaurants (8) and locations
 

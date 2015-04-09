@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20150408200104) do
     t.integer  "review_id"
   end
 
-
   add_index "menu_items", ["restaurant_id"], name: "index_menu_items_on_restaurant_id", using: :btree
   add_index "menu_items", ["review_id"], name: "index_menu_items_on_review_id", using: :btree
 
@@ -63,7 +62,6 @@ ActiveRecord::Schema.define(version: 20150408200104) do
     t.integer  "menu_item_id"
   end
 
-  
   add_index "reviews", ["menu_item_id"], name: "index_reviews_on_menu_item_id", using: :btree
   add_index "reviews", ["restaurant_id"], name: "index_reviews_on_restaurant_id", using: :btree
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree

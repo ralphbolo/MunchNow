@@ -16,7 +16,10 @@
           <%= text_field_tag :spec %>
 
         <h2>Name</h2>
-          <%= text_field_tag :name %>
+
+        <div>
+        <%= select_tag("name", options_from_collection_for_select(Restaurant.all, :name, :name), {include_blank: true}) %>
+        </div>
 
         <!-- Select form for type will go here... -->
 

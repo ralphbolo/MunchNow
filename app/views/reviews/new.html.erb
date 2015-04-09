@@ -22,7 +22,7 @@
   <%= f.number_field :totalbill %>
 </div>
 <div>
- <%= f.select(:menu_item_id, options_for_select(@menu_item_options)) %>
+ <%= f.select(:menu_item_id, options_for_select(@menu_item_options), {include_blank: true}) %>
 </div>
 
 <%= f.submit %>

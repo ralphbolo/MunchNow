@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
   def new
     @user = current_user #pretty sure we dont need this
     @restaurant = Restaurant.find(params[:restaurant_id])
+    @menu_item_options = @restaurant.menu_items.map{|u| [ u.name, u.id ] }
     @review = @restaurant.reviews.new
   end
 
@@ -37,12 +38,23 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @review = @restaurant.reviews.find(params[:id])
+    @review.destroy
+    redirect_to restaurant_path(@restaurant)
   end
+  
+  
+
+
 
 private
 
   def review_params
-    params.require(:review).permit(:review, :rating, :totalbill, :title)
+    params.require(:review).permit(:review, :rating, :totalbill, :title, :menu_item_id)
   end
+
+  
 
 end

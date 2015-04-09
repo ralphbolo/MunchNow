@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
   def new
     @user = current_user #pretty sure we dont need this
     @restaurant = Restaurant.find(params[:restaurant_id])
+    @menu_item_options = @restaurant.menu_items.map{|u| [ u.name, u.id ] }
     @review = @restaurant.reviews.new
   end
 
@@ -37,10 +38,6 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
- 
-    # @review = Restaurant.find(params[:id]).reviews.find[:review_id]
-    # @review.destroy
-    # redirect_to current_user
 
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review = @restaurant.reviews.find(params[:id])

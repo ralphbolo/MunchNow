@@ -6,16 +6,24 @@
 
 <%= form_for [@restaurant, @review]  do |f| %>
 <div>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+</div>
+<div>
   <%= f.label :review %>
   <%= f.text_field :review %>
 </div>
 <div>
   <%= f.label :rating %>
-  <%= f.number_field :review, :step => 'any' %>
+  <%= f.number_field :rating, :step => 'any' %>
 </div>
 <div>
   <%= f.label :totalbill %>
   <%= f.number_field :totalbill %>
 </div>
+<div>
+ <%= f.select(:menu_item_id, options_for_select(@menu_item_options)) %>
+</div>
+
 <%= f.submit %>
 <% end %>

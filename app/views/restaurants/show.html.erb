@@ -55,6 +55,7 @@
           			<p>Total Bill: <%= review.totalbill %></p>
           			<p>Last updated: <%= review.updated_at %></p>
           			<p>UserID: <%= review.user_id %></p>
+          			<p><%= link_to 'Delete', [review.restaurant, review], method: :delete, data: { confirm: 'Are you sure?' } %><p>
           		</div>
 
           	<% end %>

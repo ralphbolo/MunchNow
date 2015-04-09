@@ -37,6 +37,15 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+ 
+    # @review = Restaurant.find(params[:id]).reviews.find[:review_id]
+    # @review.destroy
+    # redirect_to current_user
+
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @review = @restaurant.reviews.find(params[:id])
+    @review.destroy
+    redirect_to restaurant_path(@restaurant)
   end
 
 private

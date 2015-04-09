@@ -50,7 +50,7 @@
 
           		<div>
           			<p>Title: <%= review.title %></p>
-          			<p>MenuItem: <%= review.menu_item_id %></p>
+          			<p>MenuItem: <%= MenuItem.find(review.menu_item_id).name %></p>
           			<p>Review: <%= review.review %></p>
           			<p>Rating: <%= review.rating %></p>
           			<p>Total Bill: <%= review.totalbill %></p>

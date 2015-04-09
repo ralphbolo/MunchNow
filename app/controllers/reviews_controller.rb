@@ -44,11 +44,19 @@ class ReviewsController < ApplicationController
     @review.destroy
     redirect_to restaurant_path(@restaurant)
   end
+  
+  def find_menu_item_name(id)
+    return MenuItem.find(id).name
+  end
+
+
 
 private
 
   def review_params
     params.require(:review).permit(:review, :rating, :totalbill, :title, :menu_item_id)
   end
+
+  
 
 end

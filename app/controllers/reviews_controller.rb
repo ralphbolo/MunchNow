@@ -45,9 +45,7 @@ class ReviewsController < ApplicationController
     redirect_to restaurant_path(@restaurant)
   end
   
-  def find_menu_item_name(id)
-    return MenuItem.find(id).name
-  end
+  
 
 
 

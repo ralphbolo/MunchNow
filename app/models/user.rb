@@ -7,5 +7,6 @@ class User < ActiveRecord::Base
 
   validates :email, uniqueness: true
   #referential integrity
-  has_many :reviews
+  # when a user is deleted, its reviews are also deleted
+  has_many :reviews, dependent: :destroy
 end

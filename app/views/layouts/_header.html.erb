@@ -10,23 +10,15 @@
 
 	<!-- Buttons / nav goes here -->
 	<nav class="navbar">
-		<button type="button" class="btn ">
-			<%= link_to "Home", restaurants_path %>
-	    </button>	
+			<%= link_to "Home", restaurants_path, class: 'btn btn-primary' %>
 	    <% if current_user %>
-			      	<button type="button" class="btn">
-			        	<%= link_to "Edit Profile", edit_user_path(current_user.id) %>
-			        </button>
-			        <button type="button" class="btn btn-danger">
-			        	<%= link_to "Logout", :logout, method: :post %>
-			        </button>
+			        	<%= link_to "Edit Profile", edit_user_path(current_user.id), class: 'btn' %>
+
+			        	<%= link_to "Logout", :logout, method: :post, class: 'btn btn-danger' %>
+
 			      <% else %>
-			      	<button type="button" class="btn">
-			        	<%= link_to "Register", new_user_path %>
-			        </button>
-			        <button type="button" class="btn">
-			        	<%= link_to "Login", :login %>
-			        </button>
+			        	<%= link_to "Register", new_user_path, class: 'btn btn-primary' %>
+			        	<%= link_to "Login", :login, class: 'btn btn-success'%>
 			        <button type="button" class="btn btn-primary">About</button>
 		<% end %>
 	</nav>

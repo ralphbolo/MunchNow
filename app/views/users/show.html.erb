@@ -3,6 +3,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-5">
+			<h1>My Profile</h1>
 			<p>
   				<strong>Email:</strong>
   				<%= @user.email %>
@@ -19,6 +20,35 @@
 			<%= link_to 'Edit', edit_user_path(@user) %> |
 			<%= link_to 'Back', users_path %>
 		</div>
+	</div>
+
+	<div>
+		<h1>My reviews</h1>
+		<% @user_reviews.each do |review| %>
+			<div>
+				<p> 
+					<strong>Title</strong>
+					<%= review[:title] %>
+				</p>
+				<p> 
+					<strong>Review</strong>
+					<%= review[:review] %>
+				</p>
+				<p> 
+					<strong>Rating</strong>
+					<%= review[:rating] %>
+				</p>
+				<p> 
+					<strong>Totalbil</strong>
+					<%= review[:totalbill] %>
+				</p>
+				<p> 
+					<strong>Date Reviewed</strong>
+					<%= review[:created_at].strftime("%d %b. %Y") %>
+				</p>	
+			</div>
+			
+		<% end %>
 	</div>
 	
 </div>

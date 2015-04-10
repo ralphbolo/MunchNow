@@ -13,8 +13,15 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-
     @user_reviews = @user.reviews
+    @user_review_count = @user.reviews.count
+    @user_last_reviewed = Restaurant.find(@user_reviews.last.restaurant_id).name
+
+    @total_amount_spent = @user_reviews.sum('totalbill')
+    @average_amount_spent = @user_reviews.average('totalbill')
+    @average_rating = @user_reviews.average('rating')
+
+
   end
 
   # GET /users/new

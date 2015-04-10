@@ -27,13 +27,17 @@
 		<% @user_reviews.each do |review| %>
 			<div>
 				<p> 
-					<strong>Title</strong>
-					<%= review[:title] %>
+					<h4> <strong><%= review[:title] %></strong> </h4>
+				</p>
+				<p> 
+					<strong>Restaurant</strong>
+					<%= Restaurant.find(review[:restaurant_id]).name %>
 				</p>
 				<p> 
 					<strong>Review</strong>
 					<%= review[:review] %>
 				</p>
+				
 				<p> 
 					<strong>Rating</strong>
 					<%= review[:rating] %>
@@ -51,6 +55,16 @@
 		<% end %>
 	</div>
 	
+
+	<div>
+		<h1>Stats</h1>
+
+		<p>Number of reviews: <%= @user_review_count%></p>
+		<p>Total amount spent in restaurants: <%= number_to_currency(@total_amount_spent) %></p>
+		<p>average amount spent in restaurants: <%= number_to_currency(@average_amount_spent) %></p>
+		<p>Last reviewed restaurant: <%= @user_last_reviewed%></p>
+		<p>average given rating: <%= number_to_human(@average_rating, precision: 2)  %></p>
+	</div>
 </div>
 
 

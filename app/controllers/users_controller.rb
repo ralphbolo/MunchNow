@@ -62,6 +62,7 @@ class UsersController < ApplicationController
   def show
 # <<<<<<< HEAD
     @user = User.find(params[:id])
+    @reviews = @user.reviews
     @user_reviews = @user.reviews
     @user_review_count = @user.reviews.count
     @user_last_reviewed = Restaurant.find(@user_reviews.last.restaurant_id).name

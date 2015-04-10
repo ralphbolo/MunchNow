@@ -1,7 +1,30 @@
-<h1>Query K</h1>
+<div class="container">
+	<h1>Query K</h1>
 
-<p>The result of the query is the user with the most rating</p>
+	<p>Min number of reivews</p>
 
-<div>
-	
+ <div>
+      <%= form_tag queryk_admin_index_path, :method => 'get' do %>
+
+        <h2>Minimum number of reviews entered by user</h2>
+        <%= number_field_tag :num_reviews %>
+
+
+        <div><%= submit_tag "Search" %></div>
+
+
+      <% end %>
+  </div>
+	  
+  <h2>Users that meet criteria</h2>
+
+  <p>Number of users: <%= @user.count %></p>
+  <% @user.each do |email|%>
+  <div>
+  	<%= email %>
+
+  </div>
+  <% end %>
+
 </div>
+

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :admin do
     collection do
       get :queryk
+      get :highest_bill
     end
   end
 

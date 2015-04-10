@@ -11,14 +11,14 @@
 			</p>
 			<p>
 				<strong>Username:</strong>
-  				<%= @user.username %>
+  				<%= @user.username.nil? ? "please add a username" : @user.username  %>
 			</p>
 			<p>	  					
   					<strong>Joined:</strong>
   				<%= @user.created_at.strftime("%d %b. %Y") %>
 			</p>
 
-			<h1>Reviews: </h1>
+		<!-- 	<h1>Reviews: </h1>
 			<% @reviews.each do |review| %>
           		<div>
           			<p>Title: <%= review.title %></p>
@@ -34,7 +34,7 @@
           			<p>Last updated: <%= review.updated_at %></p>
           			<p>UserID: <%= review.user_id %></p>
           			<p><%= link_to 'Delete', [review.restaurant, review], method: :delete, data: { confirm: 'Are you sure?' } %><p>
-          		</div>			<% end %>
+          		</div>			<% end %> -->
 
 			<%= link_to 'Edit', edit_user_path(@user) %> |
 			<%= link_to 'Back', users_path %>
@@ -78,6 +78,13 @@
 					<strong>Rating</strong>
 					<%= review[:rating] %>
 				</p>
+				<p><strong>MenuItem:</strong> <%=
+    			if(MenuItem.where(:id => review.menu_item_id).empty?)
+    			 'no item was specified'
+    			else
+    				MenuItem.find(review.menu_item_id).name
+    			end %>
+        </p>
 				<p> 
 					<strong>Totalbil</strong>
 					<%= number_to_currency(review[:totalbill]) %>

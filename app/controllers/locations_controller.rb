@@ -18,6 +18,6 @@ class LocationsController < ApplicationController
   private
 
   def location_params
-    params.require(:location).permit(:address, :opentime, :closetime)
+    params.require(:location).permit(:address, :opentime, :closetime, :phone_number, :manager )
   end
 end

@@ -22,6 +22,23 @@
 		</div>
 	</div>
 
+
+		<div>
+		<h1>My Stats</h1>
+
+		<p>Number of reviews: <%= @user_review_count%></p>
+		<p>Total amount spent in restaurants: <%= number_to_currency(@total_amount_spent) %></p>
+		<p>average amount spent in restaurants: <%= number_to_currency(@average_amount_spent) %></p>
+		<p>Least expensive bill: <%=  number_to_currency(@cheapest_bil.totalbill)%> at <%= Restaurant.find(@cheapest_bil.restaurant_id).name %></p>
+		<p>Most expensive bill: <%=  number_to_currency(@most_expensive_bil.totalbill)%> at <%= Restaurant.find(@most_expensive_bil.restaurant_id).name %></p>
+		<p>Last reviewed restaurant: <%= @user_last_reviewed%></p>
+		<p>average given rating: <%= number_to_human(@average_rating, precision: 2)  %></p>
+		<p>Lowest rating: <%= number_to_human(@lowest_rating.rating) %> at <%= Restaurant.find(@lowest_rating.restaurant_id).name %></p>
+		<p>Highest rating: <%= number_to_human(@highest_rating.rating) %> at <%= Restaurant.find(@highest_rating.restaurant_id).name %></p>
+
+	</div>
+
+
 	<div>
 		<h1>My reviews</h1>
 		<% @user_reviews.each do |review| %>
@@ -44,27 +61,18 @@
 				</p>
 				<p> 
 					<strong>Totalbil</strong>
-					<%= review[:totalbill] %>
+					<%= number_to_currency(review[:totalbill]) %>
 				</p>
 				<p> 
 					<strong>Date Reviewed</strong>
 					<%= review[:created_at].strftime("%d %b. %Y") %>
 				</p>	
 			</div>
-			
+			<hr>
 		<% end %>
 	</div>
 	
 
-	<div>
-		<h1>Stats</h1>
-
-		<p>Number of reviews: <%= @user_review_count%></p>
-		<p>Total amount spent in restaurants: <%= number_to_currency(@total_amount_spent) %></p>
-		<p>average amount spent in restaurants: <%= number_to_currency(@average_amount_spent) %></p>
-		<p>Last reviewed restaurant: <%= @user_last_reviewed%></p>
-		<p>average given rating: <%= number_to_human(@average_rating, precision: 2)  %></p>
-	</div>
 </div>
 
 

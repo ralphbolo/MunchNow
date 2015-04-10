@@ -20,7 +20,11 @@ class UsersController < ApplicationController
     @total_amount_spent = @user_reviews.sum('totalbill')
     @average_amount_spent = @user_reviews.average('totalbill')
     @average_rating = @user_reviews.average('rating')
+    @cheapest_bil = @user_reviews.order(totalbill: :asc).first
+    @most_expensive_bil = @user_reviews.order(totalbill: :desc).first
 
+    @lowest_rating = @user_reviews.order(rating: :asc).first
+    @highest_rating =  @user_reviews.order(rating: :desc).first
 
   end
 

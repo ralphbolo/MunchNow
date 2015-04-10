@@ -89,6 +89,10 @@ class RestaurantsController < ApplicationController
       )
 
     end
+
+
+      @restaurant_count = @restaurants.count
+
   end
 
   def show

@@ -18,14 +18,6 @@
     </div>
 
     <div class="col-xs-3">
-       <h2>Select Restaurant</h2>
-
-        <div>
-        <%= select_tag("name", options_from_collection_for_select(Restaurant.all, :name, :name), {include_blank: true}) %>
-        </div>
-    </div>
-
-    <div class="col-xs-3">
       <h2>Food Prices</h2>
           <%= label(:price_low, "Low priced food")%>
           <%= radio_button_tag(:pricerange, "low-priced-food") %>
@@ -36,17 +28,27 @@
           <%= label(:price_high, "High priced food")%>
           <%= radio_button_tag(:pricerange, "high-priced-food") %>
     </div>
+
+    <div class="col-xs-3">
+       <h2>Select Restaurant</h2>
+
+        <div>
+        <%= select_tag("name", options_from_collection_for_select(Restaurant.all, :name, :name), {include_blank: true}) %>
+        </div>
+    </div>
+
+  </div>
+
     <div class="row">
       <div class="text-center">
           <div><%= submit_tag "Search" %></div>
           <% end %>
       </div>
     </div>
-    </div>
+    
     <div class="col-xs-8">
 
-      <h1>Listing restaurants</h1>
-
+      <h1>Listing <%= @restaurant_count %> restaurants</h1>
           <% @restaurants.each do |restaurant| %>
             <div id="rest-view-test">
               <h3><%= restaurant.name %></h3>

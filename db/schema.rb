@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408200104) do
+ActiveRecord::Schema.define(version: 20150410012048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20150408200104) do
     t.integer  "review_id"
   end
 
-
   add_index "menu_items", ["restaurant_id"], name: "index_menu_items_on_restaurant_id", using: :btree
   add_index "menu_items", ["review_id"], name: "index_menu_items_on_review_id", using: :btree
 
@@ -63,7 +62,6 @@ ActiveRecord::Schema.define(version: 20150408200104) do
     t.integer  "menu_item_id"
   end
 
-  
   add_index "reviews", ["menu_item_id"], name: "index_reviews_on_menu_item_id", using: :btree
   add_index "reviews", ["restaurant_id"], name: "index_reviews_on_restaurant_id", using: :btree
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
@@ -74,6 +72,7 @@ ActiveRecord::Schema.define(version: 20150408200104) do
     t.string   "salt",             null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

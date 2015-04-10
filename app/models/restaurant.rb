@@ -1,5 +1,5 @@
 class Restaurant < ActiveRecord::Base
-	#referential integrity
+	#referential and entity integrity
 	# when a restaurant is deleted its reivews, menu_items and location is also deleted
 	has_many :reviews, dependent: :destroy
 	has_many :menu_items, dependent: :destroy

@@ -49,3 +49,7 @@ Options for the categories of menu items are...
 *Main
 *Beverage
 *Dessert
+
+NTS:
+
+Restaurant show page,

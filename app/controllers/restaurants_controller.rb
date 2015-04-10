@@ -32,7 +32,7 @@ class RestaurantsController < ApplicationController
       puts "checking pricerange"
       puts params[:pricerange]
       @restaurants = Restaurant.where(
-        ["pricerange = ?", params[:pricerange]]
+        ["pricerange = ?", [:priceraparamsnge]]
         )
     # Pricerange and name
     elsif (params[:pricerange] != nil and params[:name] != "")
@@ -78,7 +78,7 @@ class RestaurantsController < ApplicationController
   end
 
 
-#todo
+
   def destroy
     @restaurant = Restaurant.find(params[:id])
     @restaurant.destroy

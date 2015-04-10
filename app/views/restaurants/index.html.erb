@@ -1,26 +1,24 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-2"> 
-        <!-- Query -->
-        <div>
+  <div class="row text-center">
+        <!-- Query --> 
+        <!-- Passing variables to be queried against -->
+    <div class="col-xs-3">
+      <%= form_tag restaurants_path, :method => 'get' do %>
 
+        <h1>Search By Keyword</h1>
+          <%= text_field_tag :spec %>
+    </div>
+
+    <div class="col-xs-3">
+       <h2>Select Type of Restaurant</h2>
+
+        <div>
+        <%= select_tag("restaurant_type", options_from_collection_for_select(Restaurant.select(:restaurant_type).distinct, :restaurant_type, :restaurant_type), {include_blank: true}) %>
         </div>
     </div>
 
-    <!-- Passing variables to be queried against -->
-
-    <div>
-      <%= form_tag restaurants_path, :method => 'get' do %>
-
-        <h1>Search Keyword...</h1>
-          <%= text_field_tag :spec %>
-
-        <h2>Name</h2>
-          <%= text_field_tag :name %>
-
-        <!-- Select form for type will go here... -->
-
-        <h2>Food Prices</h2>
+    <div class="col-xs-3">
+      <h2>Food Prices</h2>
           <%= label(:price_low, "Low priced food")%>
           <%= radio_button_tag(:pricerange, "low-priced-food") %>
           <br>
@@ -29,16 +27,28 @@
           <br>
           <%= label(:price_high, "High priced food")%>
           <%= radio_button_tag(:pricerange, "high-priced-food") %>
-
-        <div><%= submit_tag "Search" %></div>
-
-
-      <% end %>
     </div>
+
+    <div class="col-xs-3">
+       <h2>Select Restaurant</h2>
+
+        <div>
+        <%= select_tag("name", options_from_collection_for_select(Restaurant.all, :name, :name), {include_blank: true}) %>
+        </div>
+    </div>
+
+  </div>
+
+    <div class="row">
+      <div class="text-center">
+          <div><%= submit_tag "Search" %></div>
+          <% end %>
+      </div>
+    </div>
+    
     <div class="col-xs-8">
 
-      <h1>Listing restaurants</h1>
-
+      <h1>Listing <%= @restaurant_count %> restaurants</h1>
           <% @restaurants.each do |restaurant| %>
             <div id="rest-view-test">
               <h3><%= restaurant.name %></h3>
@@ -50,7 +60,6 @@
               <%= link_to 'Delete', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %>
             </div>
           <% end %>
-    </div>
   </div> 
 </div>
 

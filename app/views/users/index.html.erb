@@ -1,3 +1,28 @@
+
+    <!-- Passing variables to be queried against -->
+
+<!-- for later -->
+<!-- <h1>Total reviews made by users: <%= @total_reviews %></h1> -->
+<h1>Total number of users displayed: <%= @total_users %></h1>
+
+    <div>
+      <%= form_tag users_path, :method => 'get' do %>
+
+        <h2>Minimum number of reviews entered by user</h2>
+        <%= number_field_tag :num_reviews %>
+
+        <h2>Email</h2>
+
+        <div>
+        <%= select_tag("email", options_from_collection_for_select(User.all, :email, :email), {include_blank: true}) %>
+        </div>
+
+        <div><%= submit_tag "Search" %></div>
+
+
+      <% end %>
+    </div>
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-2">

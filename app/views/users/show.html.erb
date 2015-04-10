@@ -7,11 +7,28 @@
   				<strong>Email:</strong>
   				<%= @user.email %>
 			</p>
+
+			<h1>Reviews: </h1>
+			<% @reviews.each do |review| %>
+          		<div>
+          			<p>Title: <%= review.title %></p>
+          			<p>MenuItem: <%=
+          			if(MenuItem.where(:id => review.menu_item_id).empty?)
+          			 'no item was specified'
+          			else
+          				MenuItem.find(review.menu_item_id).name
+          			end %></p>
+          			<p>Review: <%= review.review %></p>
+          			<p>Rating: <%= review.rating %></p>
+          			<p>Total Bill: <%= review.totalbill %></p>
+          			<p>Last updated: <%= review.updated_at %></p>
+          			<p>UserID: <%= review.user_id %></p>
+          			<p><%= link_to 'Delete', [review.restaurant, review], method: :delete, data: { confirm: 'Are you sure?' } %><p>
+          		</div>			<% end %>
+
 			<%= link_to 'Edit', edit_user_path(@user) %> |
 			<%= link_to 'Back', users_path %>
 		</div>
 	</div>
 	
 </div>
-
-

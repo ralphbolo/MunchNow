@@ -4,12 +4,64 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+
+    puts "*******************  Query  ***********************"
+    puts params[:num_reviews]
+    puts params[:email]
+
     @users = User.all
+    @reviews = Review.all
+
+    if params[:email] == nil and params[:num_reviews] == nil
+          puts "display all"
+
+    elsif params[:email] != nil
+
+      puts "testing ****** case 1"
+      puts "Email search" + params[:email]
+
+       @users = User.where(
+          ["email = ?", params[:email]]
+        )
+
+       @reviews = Review.where(
+          ["user_id = ?", User]
+        )
+       # puts @reviews.select(:reviews)
+
+     elsif params[:email] != nil and params[:num_reviews] == nil
+
+      puts "testing ****** case 2"
+        
+     elsif params[:email] == nil and params[:num_reviews] != nil
+
+      puts "testing ****** case 3"
+     end
+
+    #  if @users != nil 
+    #     @total_reviews = 0
+    #     @total_users = 0
+    #      @users.each do |user|
+    #       @total_users+=1
+    #       @reviews.each do |review|
+    #         if user.id == review.user_id
+    #           @total_reviews+=1
+    #       end
+    #     end
+    #     end
+    # end
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+
+    @reviews = Review.all
+
+    @reviews = Review.where(
+        ["user_id = ?", @user.id]
+      )
+
   end
 
   # GET /users/new

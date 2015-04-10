@@ -7,7 +7,7 @@ class AdminController < ApplicationController
   end
 
   def highest_bill
-  	@user = User.select(:email).joins(:reviews).group(:email).maximum(:totalbill)
+  	@user = Review.order(totalbill: :desc).first(5)
   	
   end
 

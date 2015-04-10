@@ -1,9 +1,14 @@
+<div class="container">
 <h1>Highest Bill</h1>
 
 <%@user.each do |user| %>
 	<div>
-		<p>Email: <%= user[0] %></p>
-		<p>Totalbil: <%= user[1] %></p>
+		<p>Email: <%= User.find(user.user_id).email %></p>
+		<p>Total Bil: <%= user.totalbill %></p>
+		<p>Restaurant: <%= Restaurant.find(user.restaurant_id) %></p>
+		<hr>
+
 	</div>
  <% end %>
 		
+</div>

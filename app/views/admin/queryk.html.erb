@@ -1,16 +1,16 @@
 <div class="container">
 	<h1>Query K</h1>
 
-	<p>Min number of reivews</p>
+
 
  <div>
       <%= form_tag queryk_admin_index_path, :method => 'get' do %>
 
-        <h2>Minimum number of reviews entered by user</h2>
+        <h2>More than x number of reviews</h2>
         <%= number_field_tag :num_reviews %>
 
 
-        <div><%= submit_tag "Search" %></div>
+        <%= submit_tag "Search" %>
 
 
       <% end %>

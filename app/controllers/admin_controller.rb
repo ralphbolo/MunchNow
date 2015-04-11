@@ -10,8 +10,4 @@ class AdminController < ApplicationController
   	@user = Review.order(totalbill: :desc).first(5)
   	
   end
-
-  def most_active_rater
-  	
-  end
 end

@@ -1,14 +1,14 @@
 <div class="container">
 <h1>Highest Bill</h1>
 
-<%@user.each do |user| %>
-	<div>
-		<p>Email: <%= User.find(user.user_id).email %></p>
-		<p>Total Bil: <%= user.totalbill %></p>
-		<p>Restaurant: <%= Restaurant.find(user.restaurant_id) %></p>
+	<%@user.each do |user| %>
+		<div>
+			<p> Email: <%= link_to User.find(user.user_id).email, user_path(user.user_id) %></p>
+			<p> Total Bil: <%= number_to_currency(user.totalbill) %></p>
+			<p> Restaurant: <%= link_to Restaurant.find(user.restaurant_id).name, restaurant_path(user.restaurant_id) %></p>
 		<hr>
-
 	</div>
- <% end %>
+ <%  end %>
+ <hr>
 		
 </div>

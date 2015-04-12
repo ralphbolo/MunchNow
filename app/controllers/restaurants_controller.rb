@@ -2,6 +2,7 @@ class RestaurantsController < ApplicationController
   before_filter :require_login, :except => [:index, :show]
   def index
 
+    puts "Testing"
     puts "*******************  Query  ***********************"
     puts params[:spec]
     puts params[:name]

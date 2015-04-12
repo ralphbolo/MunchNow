@@ -6,22 +6,38 @@ class RestaurantsController < ApplicationController
 
     @restaurants = Restaurant.all
 
+
+    puts params[:name]
+    puts params[:spec]
+    puts params[:pricerange]
+    puts params[:restaurant_type]
+
+    puts !params[:name].blank?
+    puts !params[:spec].blank?
+    puts !params[:pricerange].blank?
+    puts !params[:restaurant_type].blank?
+
     puts params.has_key?(:name)
     puts params.has_key?(:spec)
     puts params.has_key?(:pricerange)
     puts params.has_key?(:restaurant_type)
 
+    @name_exists = !params[:name].blank?
+    @spec_exists = !params[:spec].blank?
+    @pricerange_exists = !params[:pricerange].blank?
+    @restaurant_type_exists = !params[:restaurant_type].blank?
 
 
-    if params.has_key?(:name)
 
-      # puts "Specific Name Search"
+    if @name_exists
+
+      puts "Specific Name Search"
 
       @restaurants = Restaurant.where(
         ["name = ?", params[:name]]
       )
 
-    elsif params.has_key?(:spec) and params.has_key?(:restaurant_type) and params.has_key?(:pricerange)
+    elsif @spec_exists and @restaurant_type_exists and @pricerange_exists
 
       puts "General Keyword search engaged w/ price range w/ restaurant type"
 
@@ -29,7 +45,7 @@ class RestaurantsController < ApplicationController
         ["name LIKE ? and pricerange = ? and restaurant_type = ?", "%#{params[:spec]}%", params[:pricerange], params[:restaurant_type]]
       )
 
-    elsif params.has_key?(:spec) and params.has_key?(:restaurant_type)
+    elsif @spec_exists and @restaurant_type_exists
 
       puts "General Keyword search engaged w/ restaurant type"
 
@@ -37,7 +53,7 @@ class RestaurantsController < ApplicationController
         ["name LIKE ? and restaurant_type = ?", "%#{params[:spec]}%", params[:restaurant_type]]
       )
 
-    elsif params.has_key?(:spec) and params.has_key?(:pricerange)
+    elsif @spec_exists and @pricerange_exists
 
       puts "General Keyword search engaged w/ price range"
 
@@ -45,15 +61,14 @@ class RestaurantsController < ApplicationController
         ["name LIKE ? and pricerange = ?", "%#{params[:spec]}%", params[:pricerange]]
       )
 
-    elsif params.has_key?(:pricerange) and params.has_key?(:restaurant_type)
-
+    elsif @pricerange_exists and @restaurant_type_exists
       puts "Search w/ price range w/ restaurant type"
 
       @restaurants = Restaurant.where(
         ["pricerange = ? and restaurant_type = ?", params[:pricerange], params[:restaurant_type]]
       )
 
-    elsif params.has_key?(:spec)
+    elsif @spec_exists
 
       puts "General Keyword search"
 
@@ -61,7 +76,7 @@ class RestaurantsController < ApplicationController
         ["name LIKE ?", "%#{params[:spec]}%"]
       )
 
-    elsif params.has_key?(:restaurant_type)
+    elsif @restaurant_type_exists
 
       puts "w/ restaurant type"
 
@@ -69,7 +84,7 @@ class RestaurantsController < ApplicationController
         ["restaurant_type = ?", params[:restaurant_type]]
       )
 
-    elsif params.has_key?(:pricerange)
+    elsif @pricerange_exists
 
       puts "w/ price range"
 

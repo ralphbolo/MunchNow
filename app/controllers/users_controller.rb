@@ -6,7 +6,14 @@ class UsersController < ApplicationController
   def index
 
     @users = User.all
-
+    email_exists = !params[:email].blank?
+    if email_exists
+      @users = User.where(
+        ["email = ?", params[:email]]
+      )
+    else
+      @users
+    end
     # TODO
 
   end

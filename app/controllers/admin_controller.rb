@@ -9,7 +9,7 @@ class AdminController < ApplicationController
   # FROM "users" 
   # INNER JOIN "reviews" ON "reviews"."user_id" = "users"."id" 
   # GROUP BY email 
-  # HAVING count(review
+  # HAVING count(review)
   def queryk
   	@user = User.select(:email).joins(:reviews).group(:email).having('count(review) > ?', params[:num_reviews]).count.keys
   end

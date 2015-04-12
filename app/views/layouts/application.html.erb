@@ -8,13 +8,20 @@
 </head>
 <body>
 
+
+
 <!-- Including Header on all pages -->
 <%= render "layouts/header" %>
-
+	<div class="container">
+		<div class="row">
+			    <p id="notice"><%= flash[:notice] %></p>
+			    <p id="alert"><%= flash[:alert] %></p>			 
+		</div>
+	</div>	
 <%= yield %>
 
-<!-- Including Header on all pages -->
-<%= render "layouts/footer" %>
+<!-- Including Header on all pages 
+<%= render "layouts/footer" %> -->
 
 </body>
 </html>

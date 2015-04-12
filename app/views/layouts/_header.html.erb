@@ -1,25 +1,30 @@
-<div class="jumbotron">
-	<!-- Image (app icon) followed by title -->
-	<div class="container">
-		<div class="row">
-				<h1 id="header">MunchNow</h1>
-			    <p id="notice"><%= flash[:notice] %></p>
-			    <p id="alert"><%= flash[:alert] %></p>			 
-		</div>
-	</div>
 
-	<!-- Buttons / nav goes here -->
-	<nav class="navbar">
-			<%= link_to "Home", restaurants_path, class: 'btn btn-primary' %>
-	    <% if current_user %>
-			        	<%= link_to "Edit Profile", edit_user_path(current_user.id), class: 'btn' %>
 
-			        	<%= link_to "Logout", :logout, method: :post, class: 'btn btn-danger' %>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to 'MunchNow', root_path, class: 'navbar-brand' %>
+    </div>
 
-			      <% else %>
-			        	<%= link_to "Register", new_user_path, class: 'btn btn-primary' %>
-			        	<%= link_to "Login", :login, class: 'btn btn-success'%>
-			        <button type="button" class="btn btn-primary">About</button>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+  	    <% if current_user %>
+  	    	<li><%= link_to "Add A Restaurant", new_restaurant_path, class: "navlink" %></li> 
+        	<li><%= link_to "Edit Profile", edit_user_path(current_user.id), class: "navlink" %></li> 
+        	<li><%= link_to "Logout", :logout, method: :post, class: "logout" %></li>
+        
+
+      <% else %>
+
+        	<li><%= link_to "Register", new_user_path, class: "navlink" %></li> 
+        	<li> <%= link_to "Login", :login, class: 'login' %></li>
+        	
+        
 		<% end %>
-	</nav>
-</div>
+        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+
+</nav>

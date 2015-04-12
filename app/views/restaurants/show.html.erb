@@ -2,12 +2,8 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-12">
-			<p></p>
-
-			<div class="text-center">
-			<%= link_to 'Create a review for this restaurant', new_restaurant_review_path(@restaurant), class: "btn btn-success" %>
-			</div>
+		<div class="col-md-12 title bottom-border text-center">
+				<%= @restaurant.name %>
 		</div>
 	</div>
 	<div class="row">
@@ -15,80 +11,127 @@
 			<div>
 				<div class="bottom-border">
 					<h1><%= @restaurant.name %></h1>
-					<p>Pricing: <strong><%= @restaurant.pricerange %></strong></p>
+					<p><strong class="title pricerange">
+					<% if @restaurant.pricerange == "low-priced-food"%> 
+						$
+					<% elsif @restaurant.pricerange == "medium-priced-food" %>
+						$$
+					<% elsif @restaurant.pricerange == "high-priced-food"%>
+						$$$
+					<% end %>
+					</strong>(<%= @restaurant.pricerange %>)</p>
 					<p><br> <%= @restaurant.description %></p>
 				</div>
-				<div>
+				<br>
+				<div class="bottom-border">
 					<p>Restaurant Location(s): <strong class="text-right" ><%= @locations.count %></strong></p>
 					<p>Menu Item(s): <strong class="text-right"><%= @menu_items.count %></strong></p>
 					<p>Review(s): <strong><%= @reviews.count %></strong></p>
 				</div>
+				<br>
+				<div class="text-center bottom-border">
+					<%= link_to 'Create a Review', new_restaurant_review_path(@restaurant), class: "btn btn-success" %>
+				</div>
+				<div>
+					<h4><strong>
+					Locations:<% @locations.each do |location| %>
+					</strong></h4>
+					<div class="rest-list">
+						<!-- For conversions of time -->
+					<%
+					 tempOpenT = location.opentime
+					 tempCloseT = location.closetime
 
-				
+					 puts "**********************"
+					 puts "#{tempOpenT.hour}" + ":" + "#{tempOpenT.min}"
+					 puts tempCloseT
 
-				<div class="text-center">
-				<%= link_to 'Create a Review', new_restaurant_review_path(@restaurant), class: "btn btn-success" %>
-			</div>
-			</div>
-		</div>
-		<div class="col-md-3">
-			<div>
-				<h4><strong>
-				Locations:<% @locations.each do |location| %>
-				</strong></h4>
-				<div class="rest-list">
-					<!-- For conversions of time -->
-				<%
-				 tempOpenT = location.opentime
-				 tempCloseT = location.closetime
+					 %>
+		              <p><strong><%= location.address %></strong></p>
+		              <p>Open Time: <%= location.opentime.hour %></p>
 
-				 puts "**********************"
-				 puts "#{tempOpenT.hour}" + ":" + "#{tempOpenT.min}"
-				 puts tempCloseT
-
-				 %>
-	              <p>Address: <%= location.address %></p>
-	              <p>Open Time: <%= location.opentime.hour %></p>
-
-	              <p>Close Time: <%= location.closetime %></p>
-	              <p>Last Updated: <%= location.updated_at %></p>
+		              <p>Close Time: <%= location.closetime %></p>
+		              <p>Last Updated: <%= location.updated_at %></p>
 				</div>
 				
           		<% end %>
+			</div>
 			</div>
 		</div>
 		<div class="col-md-3">
 			<div>
 				<!-- for each Menu Item... -->
-          		<h4><strong>Menu Items: <% @menu_items.each do |menu_item| %></strong></h4>
-
-          		<div class="rest-list">
-          			 <p>Name: <%= menu_item.name %></p>
-          			 <p>Price: <%= menu_item.price %></p>
-          			 <p>Description: <%= menu_item.description %></p>
-          			 <p>Category: <%= menu_item.category %></p>
-          		</div>
+          		<h4><strong>Menu Items: </strong></h4>
+          		
+          		<% @menu_items.each do |menu_item| %>          		
+	          		<% if menu_item.category == "Appetizer" %>
+		          		<div class="rest-list">
+		          			 <p>Name: <%= menu_item.name %></p>
+		          			 <p>Price: $<%= menu_item.price %></p>
+		          			 <p>Description: <%= menu_item.description %></p>
+		          			 <p>Category: <%= menu_item.category %></p>
+		          		</div>
+		          	<% end %>
+          		<% end %>
+          		<% @menu_items.each do |menu_item| %>          		
+	          		<% if menu_item.category == "Side" %>
+		          		<div class="rest-list">
+		          			 <p>Name: <%= menu_item.name %></p>
+		          			 <p>Price: $<%= menu_item.price %></p>
+		          			 <p>Description: <%= menu_item.description %></p>
+		          			 <p>Category: <%= menu_item.category %></p>
+		          		</div>
+		          	<% end %>
+          		<% end %>
+          		<% @menu_items.each do |menu_item| %>          		
+	          		<% if menu_item.category == "Main" %>
+		          		<div class="rest-list">
+		          			 <p>Name: <%= menu_item.name %></p>
+		          			 <p>Price: $<%= menu_item.price %></p>
+		          			 <p>Description: <%= menu_item.description %></p>
+		          			 <p>Category: <%= menu_item.category %></p>
+		          		</div>
+		          	<% end %>
+          		<% end %>
+          		<% @menu_items.each do |menu_item| %>          		
+	          		<% if menu_item.category == "Dessert" %>
+		          		<div class="rest-list">
+		          			 <p>Name: <%= menu_item.name %></p>
+		          			 <p>Price: $<%= menu_item.price %></p>
+		          			 <p>Description: <%= menu_item.description %></p>
+		          			 <p>Category: <%= menu_item.category %></p>
+		          		</div>
+		          	<% end %>
+          		<% end %>
+          		<% @menu_items.each do |menu_item| %>          		
+	          		<% if menu_item.category == "Beverage" %>
+		          		<div class="rest-list">
+		          			 <p>Name: <%= menu_item.name %></p>
+		          			 <p>Price: $<%= menu_item.price %></p>
+		          			 <p>Description: <%= menu_item.description %></p>
+		          			 <p>Category: <%= menu_item.category %></p>
+		          		</div>
+		          	<% end %>
           		<% end %>
 			</div>
 		</div>
-		<div class="col-md-3">
+		<div class="col-md-6">
           	<!-- For each Review... -->
           	<h4><strong>
           	Reviews:<% @reviews.each do |review| %></strong></h4>
 
           		<div class="rest-list">
-          			<p>Title: <%= review.title %></p>
+          			<p><strong><%= review.title %></strong></p>
           			<p>MenuItem: <%=
           			if(MenuItem.where(:id => review.menu_item_id).empty?)
           			 'no item was specified'
           			else
           				MenuItem.find(review.menu_item_id).name
           			end %></p>
-          			<p>Review: <%= review.review %></p>
-          			<p>Rating: <%= review.rating %></p>
-          			<p>Total Bill: <%= review.totalbill %></p>
+          			<p><strong>Rating: <%= review.rating %></strong></p>
+          			<p><%= review.review %></p>
+          			<p>Total Bill: $<%= review.totalbill %></p>
           			<p>Last updated: <%= review.updated_at %></p>
-          			<p>UserID: <%= review.user_id %></p>
 
           			<!-- <p><%= link_to 'Show', review_path(review.id)%></p> -->
 

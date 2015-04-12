@@ -11,7 +11,7 @@
       <ul class="nav navbar-nav navbar-right">
   	    <% if current_user %>
   	    	<li><%= link_to "Add A Restaurant", new_restaurant_path, class: "navlink" %></li> 
-        	<li><%= link_to "Edit Profile", edit_user_path(current_user.id), class: "navlink" %></li> 
+        	<li><%= link_to "My profile: #{current_user.email}" , user_path(current_user.id), class: "navlink" %></li> 
         	<li><%= link_to "Logout", :logout, method: :post, class: "logout" %></li>
         
 

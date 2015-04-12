@@ -18,30 +18,6 @@
   					<strong>Joined:</strong>
   				<%= @user.created_at.strftime("%d %b. %Y") %>
 			</p>
-
-		<!-- 	<h1>Reviews: </h1>
-=======
-
-			<h1>Reviews: </h1>
->>>>>>> e9346182710408ad1b3a61ad8e78684c273ebe92
-			<% @reviews.each do |review| %>
-          		<div>
-          			<p>Title: <%= review.title %></p>
-          			<p>MenuItem: <%=
-          			if(MenuItem.where(:id => review.menu_item_id).empty?)
-          			 'no item was specified'
-          			else
-          				MenuItem.find(review.menu_item_id).name
-          			end %></p>
-          			<p>Review: <%= review.review %></p>
-          			<p>Rating: <%= review.rating %></p>
-          			<p>Total Bill: <%= review.totalbill %></p>
-          			<p>Last updated: <%= review.updated_at %></p>
-          			<p>UserID: <%= review.user_id %></p>
-          			<p><%= link_to 'Delete', [review.restaurant, review], method: :delete, data: { confirm: 'Are you sure?' } %><p>
-<<<<<<< HEAD
-          		</div>			<% end %> -->
-
 			<%= link_to 'Edit my profile', edit_user_path(@user) %> 
 			
 		</div>
@@ -51,11 +27,11 @@
 
 			<p>Number of reviews: <%= @user_review_count%></p>
 			<p>Total amount spent in restaurants: <%= number_to_currency(@total_amount_spent) %></p>
-			<p>average amount spent in restaurants: <%= number_to_currency(@average_amount_spent) %></p>
+			<p>Average amount spent in restaurants: <%= number_to_currency(@average_amount_spent) %></p>
 			<p>Least expensive bill: <%=  number_to_currency(@cheapest_bil.totalbill)%> at <%= Restaurant.find(@cheapest_bil.restaurant_id).name %></p>
 			<p>Most expensive bill: <%=  number_to_currency(@most_expensive_bil.totalbill)%> at <%= Restaurant.find(@most_expensive_bil.restaurant_id).name %></p>
 			<p>Last reviewed restaurant: <%= @user_last_reviewed%></p>
-			<p>average given rating: <%= number_to_human(@average_rating, precision: 2)  %></p>
+			<p>Average given rating: <%= number_to_human(@average_rating, precision: 2)  %></p>
 			<p>Lowest rating: <%= @lowest_rating.rating %> at <%= Restaurant.find(@lowest_rating.restaurant_id).name %></p>
 			<p>Highest rating: <%= @highest_rating.rating %> at <%= Restaurant.find(@highest_rating.restaurant_id).name %></p>
 

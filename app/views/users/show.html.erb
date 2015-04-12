@@ -13,12 +13,17 @@
 				<strong>Username:</strong>
   				<%= @user.username.nil? ? "please add a username" : @user.username  %>
 			</p>
+<!-- <<<<<<< HEAD -->
 			<p>	  					
   					<strong>Joined:</strong>
   				<%= @user.created_at.strftime("%d %b. %Y") %>
 			</p>
 
 		<!-- 	<h1>Reviews: </h1>
+=======
+
+			<h1>Reviews: </h1>
+>>>>>>> e9346182710408ad1b3a61ad8e78684c273ebe92
 			<% @reviews.each do |review| %>
           		<div>
           			<p>Title: <%= review.title %></p>
@@ -34,6 +39,7 @@
           			<p>Last updated: <%= review.updated_at %></p>
           			<p>UserID: <%= review.user_id %></p>
           			<p><%= link_to 'Delete', [review.restaurant, review], method: :delete, data: { confirm: 'Are you sure?' } %><p>
+<<<<<<< HEAD
           		</div>			<% end %> -->
 
 			<%= link_to 'Edit my profile', edit_user_path(@user) %> 
@@ -101,5 +107,3 @@
 		<% end %>
 	</div>
 	
-
-</div>

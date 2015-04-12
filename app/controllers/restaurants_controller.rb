@@ -3,30 +3,58 @@ class RestaurantsController < ApplicationController
   def index
 
     puts "*******************  Query  ***********************"
-    puts params[:spec]
+
+    @restaurants = Restaurant.all
+    @total_restaurants = @restaurants.count
+
+
     puts params[:name]
+    puts params[:spec]
     puts params[:pricerange]
     puts params[:restaurant_type]
-    @restaurants = Restaurant.all
+
+    puts !params[:name].blank?
+    puts !params[:spec].blank?
+    puts !params[:pricerange].blank?
+    puts !params[:restaurant_type].blank?
+
+    puts params.has_key?(:name)
+    puts params.has_key?(:spec)
+    puts params.has_key?(:pricerange)
+    puts params.has_key?(:restaurant_type)
+
+    @name_exists = !params[:name].blank?
+    @spec_exists = !params[:spec].blank?
+    @pricerange_exists = !params[:pricerange].blank?
+    @restaurant_type_exists = !params[:restaurant_type].blank?
 
 
-    if params[:spec] != "" and params[:pricerange] != nil and params[:restaurant_type] != nil
 
-    puts "General Keyword search engaged w/ price range w/ restaurant type"
+    if @name_exists
 
-    @restaurants = Restaurant.where(
-      ["name LIKE ? and pricerange = ? and restaurant_type = ?", "%#{params[:spec]}%", params[:pricerange], params[:restaurant_type]]
-    )
+      puts "Specific Name Search"
 
-    elsif params[:spec] != "" and params[:restaurant_type] != ""
-      
+      @restaurants = Restaurant.where(
+        ["name = ?", params[:name]]
+      )
+
+    elsif @spec_exists and @restaurant_type_exists and @pricerange_exists
+
+      puts "General Keyword search engaged w/ price range w/ restaurant type"
+
+      @restaurants = Restaurant.where(
+        ["name LIKE ? and pricerange = ? and restaurant_type = ?", "%#{params[:spec]}%", params[:pricerange], params[:restaurant_type]]
+      )
+
+    elsif @spec_exists and @restaurant_type_exists
+
       puts "General Keyword search engaged w/ restaurant type"
 
       @restaurants = Restaurant.where(
         ["name LIKE ? and restaurant_type = ?", "%#{params[:spec]}%", params[:restaurant_type]]
       )
 
-    elsif params[:spec] != "" and params[:pricerange] != nil
+    elsif @spec_exists and @pricerange_exists
 
       puts "General Keyword search engaged w/ price range"
 
@@ -34,64 +62,42 @@ class RestaurantsController < ApplicationController
         ["name LIKE ? and pricerange = ?", "%#{params[:spec]}%", params[:pricerange]]
       )
 
-    elsif params[:spec] != ""
+    elsif @pricerange_exists and @restaurant_type_exists
+      puts "Search w/ price range w/ restaurant type"
 
-      puts "General Keyword search engaged"
+      @restaurants = Restaurant.where(
+        ["pricerange = ? and restaurant_type = ?", params[:pricerange], params[:restaurant_type]]
+      )
+
+    elsif @spec_exists
+
+      puts "General Keyword search"
 
       @restaurants = Restaurant.where(
         ["name LIKE ?", "%#{params[:spec]}%"]
       )
 
-    # Neither price range or name
-    elsif params[:pricerange] == nil and params[:name] == "" and params[:restaurant_type] ==""
+    elsif @restaurant_type_exists
 
-      puts "no pricerange indicated. No name indicated. No restaurant_type indicated"
-      puts "No filter"
-
-    # No pricerange, name indicated
-    elsif params[:pricerange] == nil and params[:name] != "" and params[:restaurant_type] ==""
-
-      puts "no pricerange indicated, name indicated. No restaurant_type indicated"
-      puts "checking name"
-
-      @restaurants = Restaurant.where(
-        ["name = ?", params[:name]]
-        )
-    # Pricerange indicated, no name
-    elsif params[:pricerange] != nil and params[:name] == "" and params[:restaurant_type] ==""
-
-      puts "pricerange indicated, no name indicated. no restaurant_type indicated"
-      puts "checking pricerange"
-
-      @restaurants = Restaurant.where(
-        ["pricerange = ?", [:priceraparamsnge]]
-        )
-    # Pricerange and name
-    elsif params[:pricerange] != nil and params[:name] != "" and params[:restaurant_type] ==""
-
-      puts "Pricerange indicated, name indicated no restaurant_type indicated"
-      puts "Checking Pricerange and name"
-
-      @restaurants = Restaurant.where(
-        ["pricerange = ? and name = ?", params[:pricerange], params[:name]]  
-      )
-
-    elsif params[:pricerange] == nil and params[:name] == "" and params[:restaurant_type] !=""
+      puts "w/ restaurant type"
 
       @restaurants = Restaurant.where(
         ["restaurant_type = ?", params[:restaurant_type]]
       )
 
-    elsif params[:pricerange] != nil and params[:name] == "" and params[:restaurant_type] !=""
+    elsif @pricerange_exists
+
+      puts "w/ price range"
 
       @restaurants = Restaurant.where(
-        ["restaurant_type = ? and pricerange = ?", params[:restaurant_type], params[:pricerange]]
+        ["pricerange = ?", params[:pricerange]]
       )
 
     end
 
-
+      # Number of restaurants found in query
       @restaurant_count = @restaurants.count
+
 
   end
 

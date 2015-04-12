@@ -7,5 +7,12 @@
 @import "bootstrap";
 
 #rest-view-test{
-	background-color: #cdcdcd;
+	border: 1px solid #CCCCCC;
+	padding: 20px;
+	border-radius: 20px;
+	margin-bottom: 10px;
+	background-color: #F4F4F4;
+}
+#rest-view-test:hover{
+	background-color: #F9F9F9;
 }

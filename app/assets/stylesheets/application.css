@@ -13,3 +13,48 @@
  *= require_tree .
  *= require_self
  */
+
+
+/**
+ * Basic styling
+ */
+body{
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 18px;
+
+    font-weight: 300;
+    color: #353535;
+    background-color: #F4F4F4;
+}
+
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+}
+
+/* LEFT TO RIGHT LINK ANIMATION*/
+a {
+	display: inline-block;
+}
+a:after {
+	content: '';
+	display: block;
+	height: 3px;
+	width: 0;
+	background: transparent;
+	transition: width .5s ease, background-color .5s ease;
+}
+a:hover:after {
+	width: 100%;
+	background: white;
+}
+
+.title{
+	padding-bottom: 20px;
+	font-size: 40px;
+	font-variant: small-caps;
+	font-weight: 900;
+}

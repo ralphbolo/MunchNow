@@ -25,6 +25,12 @@ class AdminController < ApplicationController
   	@user = Review.order(totalbill: :desc).first(5)
   end
 
+  def find_user_that_review_x_restaurant
+
+    @restaurant ||= Restaurant.find(params[:name]).name || 'please specify a restaurant'
+    @user = User.select(:email).joins(:reviews).group(:email, :restaurant_id).having('restaurant_id = ?', params[:name])
+  end
+
 
   #Query find a user that has a bill more than user specified value
 

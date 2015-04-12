@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     collection do
       get :queryk
       get :highest_bill
+      get :find_user_that_review_x_restaurant
     end
   end
 

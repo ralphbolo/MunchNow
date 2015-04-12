@@ -36,10 +36,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* LEFT TO RIGHT LINK ANIMATION*/
-a {
+a, .link-anim {
 	display: inline-block;
 }
-a:after {
+a:after, .link-anim:after {
 	content: '';
 	display: block;
 	height: 3px;
@@ -47,11 +47,19 @@ a:after {
 	background: transparent;
 	transition: width .5s ease, background-color .5s ease;
 }
-a:hover:after {
+a:hover:after, .link-anim:hover:after {
 	width: 100%;
 	background: white;
 }
 
+.bottom-border{
+	padding-bottom: 20px;
+	border-bottom: 1px solid #CCCCCC;
+}
+
+.left-border{
+	border-left: 1px solid #CCCCCC;
+}
 .title{
 	padding-bottom: 20px;
 	font-size: 40px;

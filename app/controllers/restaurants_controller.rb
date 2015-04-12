@@ -97,12 +97,15 @@ class RestaurantsController < ApplicationController
 
       # Number of restaurants found in query
       @restaurant_count = @restaurants.count
-
-
   end
 
   def show
     @restaurant = Restaurant.find(params[:id])
+
+    @locations = @restaurant.locations
+    @menu_items = @restaurant.menu_items
+    @reviews = @restaurant.reviews
+
   end
 
   def new

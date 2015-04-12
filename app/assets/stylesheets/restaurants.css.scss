@@ -6,13 +6,21 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-#rest-view-test{
+.rest-list{
 	border: 1px solid #CCCCCC;
 	padding: 20px;
 	border-radius: 20px;
 	margin-bottom: 10px;
 	background-color: #F4F4F4;
 }
-#rest-view-test:hover{
-	background-color: #F9F9F9;
+.rest-list:hover{
+	background-color: white;
+	//Shadow
+	-webkit-box-shadow: 0px 0px 20px 9px rgba(56,56,56,0.46);
+	-moz-box-shadow: 0px 0px 20px 9px rgba(56,56,56,0.46);
+	box-shadow: 0px 0px 20px 9px rgba(56,56,56,0.46);
+}
+
+.Title{
+
 }

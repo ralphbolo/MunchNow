@@ -2,7 +2,7 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-5">
+		<div class="col-md-6">
 			<h1>My Profile</h1>
 			<p>
   				<strong>Email:</strong>
@@ -36,30 +36,33 @@
           			<p><%= link_to 'Delete', [review.restaurant, review], method: :delete, data: { confirm: 'Are you sure?' } %><p>
           		</div>			<% end %> -->
 
-			<%= link_to 'Edit', edit_user_path(@user) %> |
-			<%= link_to 'Back', users_path %>
+			<%= link_to 'Edit my profile', edit_user_path(@user) %> 
+			
+		</div>
+
+		<div class='col-md-6'>
+			<h1>My Stats</h1>
+
+			<p>Number of reviews: <%= @user_review_count%></p>
+			<p>Total amount spent in restaurants: <%= number_to_currency(@total_amount_spent) %></p>
+			<p>average amount spent in restaurants: <%= number_to_currency(@average_amount_spent) %></p>
+			<p>Least expensive bill: <%=  number_to_currency(@cheapest_bil.totalbill)%> at <%= Restaurant.find(@cheapest_bil.restaurant_id).name %></p>
+			<p>Most expensive bill: <%=  number_to_currency(@most_expensive_bil.totalbill)%> at <%= Restaurant.find(@most_expensive_bil.restaurant_id).name %></p>
+			<p>Last reviewed restaurant: <%= @user_last_reviewed%></p>
+			<p>average given rating: <%= number_to_human(@average_rating, precision: 2)  %></p>
+			<p>Lowest rating: <%= @lowest_rating.rating %> at <%= Restaurant.find(@lowest_rating.restaurant_id).name %></p>
+			<p>Highest rating: <%= @highest_rating.rating %> at <%= Restaurant.find(@highest_rating.restaurant_id).name %></p>
+
 		</div>
 	</div>
 
 
-		<div>
-		<h1>My Stats</h1>
 
-		<p>Number of reviews: <%= @user_review_count%></p>
-		<p>Total amount spent in restaurants: <%= number_to_currency(@total_amount_spent) %></p>
-		<p>average amount spent in restaurants: <%= number_to_currency(@average_amount_spent) %></p>
-		<p>Least expensive bill: <%=  number_to_currency(@cheapest_bil.totalbill)%> at <%= Restaurant.find(@cheapest_bil.restaurant_id).name %></p>
-		<p>Most expensive bill: <%=  number_to_currency(@most_expensive_bil.totalbill)%> at <%= Restaurant.find(@most_expensive_bil.restaurant_id).name %></p>
-		<p>Last reviewed restaurant: <%= @user_last_reviewed%></p>
-		<p>average given rating: <%= number_to_human(@average_rating, precision: 2)  %></p>
-		<p>Lowest rating: <%= @lowest_rating.rating %> at <%= Restaurant.find(@lowest_rating.restaurant_id).name %></p>
-		<p>Highest rating: <%= @highest_rating.rating %> at <%= Restaurant.find(@highest_rating.restaurant_id).name %></p>
-
-	</div>
-
-
+	<hr>
+	
 	<div>
-		<h1>My reviews</h1>
+		<h1>My reviews(<%= @user_review_count%>)<p>
+			<br>
 		<% @user_reviews.each do |review| %>
 			<div>
 				<p> 
@@ -67,7 +70,7 @@
 				</p>
 				<p> 
 					<strong>Restaurant</strong>
-					<%= Restaurant.find(review[:restaurant_id]).name %>
+					<%= link_to Restaurant.find(review[:restaurant_id]).name, restaurant_path(review[:restaurant_id]) %>
 				</p>
 				<p> 
 					<strong>Review</strong>

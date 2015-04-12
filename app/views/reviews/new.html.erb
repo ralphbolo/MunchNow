@@ -1,29 +1,37 @@
-<h1>Create a review<h2>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<h1>Create a review<h2>
+
+				<h3>Current restaurant: <%= link_to @restaurant.name, @restaurant %></h3>
 
 
-<p>Current restaurant: <%= @restaurant.name %></p>
+				<%= form_for [@restaurant, @review]  do |f| %>
+				<div class="field form-group">
+				  <%= f.label :title %>
+				  <%= f.text_field :title, :class => 'form-control' %>
+				</div>
+				<div class="field form-group">
+				  <%= f.label :review %>
+				  <%= f.text_field :review, :class => 'form-control' %>
+				</div>
+				<div class="field form-group">
+				  <%= f.label :rating %>
+				  <%= f.number_field :rating, :step => 'any' ,:class => 'form-control'%>
+				</div>
+				<div class="field form-group">
+				  <%= f.label :totalbill %>
+				  <%= f.number_field :totalbill, :class => 'form-control' %>
+				</div>
+				<div class="field form-group">
+					<%= f.label 'menu item' %>
+				 <%= f.select(:menu_item_id, options_for_select(@menu_item_options), {include_blank: true}) %>
+				</div>
 
+				<%= f.submit %>
+				<% end %>
 
-<%= form_for [@restaurant, @review]  do |f| %>
-<div>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-</div>
-<div>
-  <%= f.label :review %>
-  <%= f.text_field :review %>
-</div>
-<div>
-  <%= f.label :rating %>
-  <%= f.number_field :rating, :step => 'any' %>
-</div>
-<div>
-  <%= f.label :totalbill %>
-  <%= f.number_field :totalbill %>
-</div>
-<div>
- <%= f.select(:menu_item_id, options_for_select(@menu_item_options), {include_blank: true}) %>
-</div>
+		</div>
+	</div>
 
-<%= f.submit %>
-<% end %>
+</div>

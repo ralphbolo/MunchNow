@@ -6,9 +6,15 @@ class UsersController < ApplicationController
   def index
 
 # <<<<<<< HEAD
+# <<<<<<< HEAD
 #     # puts "*******************  Query  ***********************"
 #     # puts params[:num_reviews]
 #     # puts params[:email]
+# =======
+    # puts "*******************  Query  ***********************"
+    # puts params[:num_reviews]
+    # puts params[:email]
+# >>>>>>> ChristopherElten-master
 
     @users = User.all
 # <<<<<<< HEAD
@@ -37,6 +43,7 @@ class UsersController < ApplicationController
 #      elsif params[:email] != nil and params[:num_reviews] == nil
 
 #       puts "testing ****** case 2"
+# <<<<<<< HEAD
         
 #      elsif params[:email] == nil and params[:num_reviews] != nil
 
@@ -84,12 +91,15 @@ class UsersController < ApplicationController
 #      elsif params[:email] != nil and params[:num_reviews] == nil
 
 #       puts "testing ****** case 2"
+# =======
+# >>>>>>> ChristopherElten-master
         
 #      elsif params[:email] == nil and params[:num_reviews] != nil
 
 #       puts "testing ****** case 3"
 #      end
 
+# <<<<<<< HEAD
     #  if @users != nil 
     #     @total_reviews = 0
     #     @total_users = 0
@@ -102,6 +112,20 @@ class UsersController < ApplicationController
     #     end
     #     end
     # end
+# =======
+#     #  if @users != nil 
+#     #     @total_reviews = 0
+#     #     @total_users = 0
+#     #      @users.each do |user|
+#     #       @total_users+=1
+#     #       @reviews.each do |review|
+#     #         if user.id == review.user_id
+#     #           @total_reviews+=1
+#     #       end
+#     #     end
+#     #     end
+#     # end
+# >>>>>>> ChristopherElten-master
 # >>>>>>> e9346182710408ad1b3a61ad8e78684c273ebe92
   end
 
@@ -109,12 +133,15 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
 # <<<<<<< HEAD
+# <<<<<<< HEAD
 # # <<<<<<< HEAD
     
 
     # Query find a certain user with id
     # SQL, sample find user with id 1
     # SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+# =======
+# >>>>>>> ChristopherElten-master
     @user = User.find(params[:id])
     
     # Query find the reviews of a user, Note @reviews and @user_reviews are the same
@@ -188,14 +215,17 @@ class UsersController < ApplicationController
 #         ["user_id = ?", @user.id]
 #       )
 # >>>>>>> e9346182710408ad1b3a61ad8e78684c273ebe92
+# <<<<<<< HEAD
+# # =======
+
+# #     @reviews = Review.all
+
+# #     @reviews = Review.where(
+# #         ["user_id = ?", @user.id]
+# #       )
+# # >>>>>>> e9346182710408ad1b3a61ad8e78684c273ebe92
 # =======
-
-#     @reviews = Review.all
-
-#     @reviews = Review.where(
-#         ["user_id = ?", @user.id]
-#       )
-# >>>>>>> e9346182710408ad1b3a61ad8e78684c273ebe92
+# >>>>>>> ChristopherElten-master
 
   end
 

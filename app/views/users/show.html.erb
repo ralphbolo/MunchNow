@@ -49,6 +49,7 @@
 		<div class='col-md-6'>
 			<h1>My Stats</h1>
 
+<!-- <<<<<<< HEAD -->
 			<p>Number of reviews: <%= @user_review_count%></p>
 			<p>Total amount spent in restaurants: <%= number_to_currency(@total_amount_spent) %></p>
 			<p>average amount spent in restaurants: <%= number_to_currency(@average_amount_spent) %></p>
@@ -59,7 +60,6 @@
 			<p>Lowest rating: <%= @lowest_rating.rating %> at <%= Restaurant.find(@lowest_rating.restaurant_id).name %></p>
 			<p>Highest rating: <%= @highest_rating.rating %> at <%= Restaurant.find(@highest_rating.restaurant_id).name %></p>
 
-		</div>
 	</div>
 
 

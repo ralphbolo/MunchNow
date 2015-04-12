@@ -15,6 +15,8 @@
  */
 
 
+
+
 /**
  * Basic styling
  */
@@ -47,10 +49,21 @@ a:after, .link-anim:after {
 	background: transparent;
 	transition: width .5s ease, background-color .5s ease;
 }
-a:hover:after, .link-anim:hover:after {
+a.navlink:hover:after, .link-anim:hover:after {
 	width: 100%;
-	background: white;
+	background: #4099FF;
 }
+
+a.logout:hover:after, .link-anim:hover:after {
+	width: 100%;
+	background: red;
+}
+
+a.login:hover:after, .link-anim:hover:after {
+	width: 100%;
+	background: #4CAF50;
+}
+
 
 .bottom-border{
 	padding-bottom: 20px;

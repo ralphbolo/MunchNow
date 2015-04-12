@@ -1,3 +1,9 @@
+
+Heroku stuff
+
+heroku pg:reset HEROKU_POSTGRESQL_MAROON
+heroku pg:push munchnow_development HEROKU_POSTGRESQL_MAROON --app powerful-depths-5071
+
 source: http://robdodson.me/how-to-setup-postgresql-for-rails-and-heroku/\
 				http://serverfault.com/questions/110154/whats-the-default-superuser-username-password-for-postgres-after-a-new-install
 

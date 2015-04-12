@@ -1,4 +1,5 @@
-<%= form_for(@user) do |f| %>
+
+  <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -11,19 +12,31 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+  <div class="field form-group">
+    <%= f.label :username %>
+    <%= f.text_field :username, :class => 'form-control', :placeholder => '5timeCHamp' %>
   </div>
-  <div class="field">
-     <%= f.label :password %><br />
-     <%= f.password_field :password %>
+  <div class="field form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, :class => 'form-control', :placeholder => 'imhungry@now.com' %>
   </div>
-  <div class="field">
-     <%= f.label :password_confirmation %><br />
-     <%= f.password_field :password_confirmation %>
+  <div class="field form-group">
+     <%= f.label :password %>
+     <%= f.password_field :password, :class => 'form-control' %>
   </div>
+  <div class="field form-group">
+     <%= f.label :password_confirmation %>
+     <%= f.password_field :password_confirmation, :class => 'form-control' %>
+  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => 'btn btn-success' %>
+    <% if params[:id] != nil %>
+    <%= link_to 'My profile', @user, :class => 'btn btn-primary' %> 
+    <% end %>
   </div>
-<% end %>
+  
+  <% end %>
+
+
+

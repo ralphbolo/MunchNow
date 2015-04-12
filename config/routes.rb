@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
 
+  
+
   root 'restaurants#index'
+
+  resources :admin do
+    collection do
+      get :queryk
+      get :highest_bill
+    end
+  end
 
   resources :restaurants do
     resources :reviews, :locations, :menu_items

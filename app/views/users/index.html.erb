@@ -33,14 +33,40 @@
     </div>
   </div>
 </div>
+<!-- >>>>>>> e9346182710408ad1b3a61ad8e78684c273ebe92 -->
 
+    <!-- Passing variables to be queried against -->
+
+<!-- for later -->
+<!-- <h1>Total reviews made by users: <%= @total_reviews %></h1> -->
+<h1>Total number of users displayed: <%= @total_users %></h1>
+
+    <div>
+      <%= form_tag users_path, :method => 'get' do %>
+
+        <h2>Minimum number of reviews entered by user</h2>
+        <%= number_field_tag :num_reviews %>
+
+        <h2>Email</h2>
+
+        <div>
+        <%= select_tag("email", options_from_collection_for_select(User.all, :email, :email), {include_blank: true}) %>
+        </div>
+
+        <div><%= submit_tag "Search" %></div>
+
+
+      <% end %>
+    </div>
 <div class="container">
+  <h1 class="text-center">All users</h1>
   <div class="row">
     <div class="col-md-12">
       <table class="table">
         <thead>
           <tr>
             <th>Email</th>
+            <th>Review count</th>
           </tr>
         </thead>
 
@@ -48,6 +74,7 @@
           <% @users.each do |user| %>
             <tr>
               <td><%= user.email %></td>
+              <td><%= user.reviews.count %></td>
               <td><%= link_to 'Show', user %></td>
               <td><%= link_to 'Edit', edit_user_path(user) %></td>
               <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -58,6 +85,4 @@
     </div>
   </div>
 </div>
-<div class="text-center">
-  <%= link_to 'New User', new_user_path %>
-</div>
+

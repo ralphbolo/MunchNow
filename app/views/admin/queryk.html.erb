@@ -1,0 +1,30 @@
+<div class="container">
+	<h1>Query K</h1>
+
+
+
+ <div>
+      <%= form_tag queryk_admin_index_path, :method => 'get' do %>
+
+        <h2>More than x number of reviews</h2>
+        <%= number_field_tag :num_reviews %>
+
+
+        <%= submit_tag "Search" %>
+
+
+      <% end %>
+  </div>
+	  
+  <h2>Users that meet criteria</h2>
+
+  <p>Number of users: <%= @user.count %></p>
+  <% @user.each do |email|%>
+  <div>
+  	<%= email %>
+
+  </div>
+  <% end %>
+
+</div>
+

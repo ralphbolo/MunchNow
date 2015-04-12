@@ -26,8 +26,12 @@ class AdminController < ApplicationController
   end
 
   def find_user_that_review_x_restaurant
-
-    @restaurant ||= Restaurant.find(params[:name]).name || 'please specify a restaurant'
+    @restaurant = params[:name]
+    if @restaurant.nil?
+          @restaurant =   'please specify a restaurant'
+    else 
+      @restaurant = Restaurant.find(params[:name]).name
+    end
     @user = User.select(:email).joins(:reviews).group(:email, :restaurant_id).having('restaurant_id = ?', params[:name])
   end
 

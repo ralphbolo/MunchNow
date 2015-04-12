@@ -28,7 +28,8 @@
 			</div>
 
 			<div class="field form-group">
-				<Strong>Food Prices</Strong>
+				<div><Strong>Food Prices</Strong></div> 
+
 				<div>
 					<%= f.label(:price_low, "Low priced food")%>
 					<%= f.radio_button(:pricerange, "low-priced-food")%>
@@ -43,25 +44,14 @@
 
 			<div class="field form-group">
 				<Strong><%= f.label :description %></Strong>
-				<%= f.text_area :description %>
+				<%= f.text_area :description, class: 'form-control' %>
 			</div>
 
 			<div class="field form-group">
-
+				<Strong><%= f.label :restaurant_type%></Strong>
         <%= f.select("restaurant_type", options_from_collection_for_select(Restaurant.select(:restaurant_type).distinct, :restaurant_type, :restaurant_type), {include_blank: true}) %>
-
 			</div>
-
-				
-				
-				
-
-				
-				
-
-				
-
-				<div><%= f.submit %></div>
+			<div><%= f.submit %></div>
 
 			</div>
 		</div>

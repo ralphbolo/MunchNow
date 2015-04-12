@@ -29,69 +29,73 @@ class UsersController < ApplicationController
 
     @user = User.find(params[:id])
     
-    # Query find the reviews of a user, Note @reviews and @user_reviews are the same
-    # SQL, sample for user_id = 1, displays all their review
-    # SELECT "reviews".* 
-    # FROM "reviews"  
-    # WHERE "reviews"."user_id" = $1  [["user_id", 1]]
-    @reviews = @user.reviews
-    @user_reviews = @user.reviews
+    if @user.reviews.count == 0
+      redirect_to restaurants_path, notice: 'Please create a review'  
+    else
+      # Query find the reviews of a user, Note @reviews and @user_reviews are the same
+      # SQL, sample for user_id = 1, displays all their review
+      # SELECT "reviews".* 
+      # FROM "reviews"  
+      # WHERE "reviews"."user_id" = $1  [["user_id", 1]]
+      @reviews = @user.reviews
+      @user_reviews = @user.reviews
 
-    # Query @user_review_count find the review count for a certain user
-    # SQL , user_id = 1
-    # SELECT COUNT(*) 
-    # FROM "reviews"  
-    # WHERE "reviews"."user_id" = $1  [["user_id", 1]]     
-    @user_review_count = @user.reviews.count
+      # Query @user_review_count find the review count for a certain user
+      # SQL , user_id = 1
+      # SELECT COUNT(*) 
+      # FROM "reviews"  
+      # WHERE "reviews"."user_id" = $1  [["user_id", 1]]     
+      @user_review_count = @user.reviews.count
 
-    # Query @user_last_reviewed find the name of the last reviewed Restaurant for the specified user
-    # SQL, user_id = 1
-    # SELECT  "restaurants".* 
-    # FROM "restaurants"  
-    # WHERE "restaurants"."id" = $1 LIMIT 1  [["id", 1]]
-    @user_last_reviewed = Restaurant.find(@user_reviews.last.restaurant_id).name
+      # Query @user_last_reviewed find the name of the last reviewed Restaurant for the specified user
+      # SQL, user_id = 1
+      # SELECT  "restaurants".* 
+      # FROM "restaurants"  
+      # WHERE "restaurants"."id" = $1 LIMIT 1  [["id", 1]]
+      @user_last_reviewed = Restaurant.find(@user_reviews.last.restaurant_id).name
 
-    # Query @total_amount_spent find the total amount spent for a certain user
-    # SQL, user_id = 1
-    # SELECT SUM("reviews"."totalbill") 
-    # AS sum_id 
-    # FROM "reviews"  
-    # WHERE "reviews"."user_id" = $1  [["user_id", 1]]
-    @total_amount_spent = @user_reviews.sum('totalbill')
-    
-    # Query @average_amount_spent finds the average amount spent for a user
-    # SQL, user_id = 1
-    # SELECT AVG("reviews"."totalbill") 
-    # AS avg_id 
-    # FROM "reviews"  
-    # WHERE "reviews"."user_id" = $1  [["user_id", 1]]
-    @average_amount_spent = @user_reviews.average('totalbill')
+      # Query @total_amount_spent find the total amount spent for a certain user
+      # SQL, user_id = 1
+      # SELECT SUM("reviews"."totalbill") 
+      # AS sum_id 
+      # FROM "reviews"  
+      # WHERE "reviews"."user_id" = $1  [["user_id", 1]]
+      @total_amount_spent = @user_reviews.sum('totalbill')
+      
+      # Query @average_amount_spent finds the average amount spent for a user
+      # SQL, user_id = 1
+      # SELECT AVG("reviews"."totalbill") 
+      # AS avg_id 
+      # FROM "reviews"  
+      # WHERE "reviews"."user_id" = $1  [["user_id", 1]]
+      @average_amount_spent = @user_reviews.average('totalbill')
 
-    # Query @average_rating finds the average rating given by a ceratin user
-    # SQL user_id = 1
-    # SELECT AVG("reviews"."rating") 
-    # AS avg_id 
-    # FROM "reviews"  
-    # WHERE "reviews"."user_id" = $1  [["user_id", 1]]
-    @average_rating = @user_reviews.average('rating')
+      # Query @average_rating finds the average rating given by a ceratin user
+      # SQL user_id = 1
+      # SELECT AVG("reviews"."rating") 
+      # AS avg_id 
+      # FROM "reviews"  
+      # WHERE "reviews"."user_id" = $1  [["user_id", 1]]
+      @average_rating = @user_reviews.average('rating')
 
-    # Query @cheapest_bil and @most_expensive_bil finds lowest and highest bill for a certain user
-    # SQL for cheapest_bil, the most_expensive_bil is inverse, user_id = 1
-    # SELECT  "reviews".* 
-    # FROM "reviews"  
-    # WHERE "reviews"."user_id" = $1  
-    # ORDER BY "reviews"."totalbill" ASC LIMIT 1  [["user_id", 1]]
-    @cheapest_bil = @user_reviews.order(totalbill: :asc).first
-    @most_expensive_bil = @user_reviews.order(totalbill: :desc).first
+      # Query @cheapest_bil and @most_expensive_bil finds lowest and highest bill for a certain user
+      # SQL for cheapest_bil, the most_expensive_bil is inverse, user_id = 1
+      # SELECT  "reviews".* 
+      # FROM "reviews"  
+      # WHERE "reviews"."user_id" = $1  
+      # ORDER BY "reviews"."totalbill" ASC LIMIT 1  [["user_id", 1]]
+      @cheapest_bil = @user_reviews.order(totalbill: :asc).first
+      @most_expensive_bil = @user_reviews.order(totalbill: :desc).first
 
-    # Query @lowest_rating and @highest_rating finds the highest and lowest rating given by a certain user
-    # SQL sample for lowest rating, highest rating is the inverse, user_id = 1
-    # SELECT  "reviews".* 
-    # FROM "reviews"  
-    # WHERE "reviews"."user_id" = $1  
-    # ORDER BY "reviews"."rating" ASC LIMIT 1  [["user_id", 1]]
-    @lowest_rating = @user_reviews.order(rating: :asc).first
-    @highest_rating =  @user_reviews.order(rating: :desc).first
+      # Query @lowest_rating and @highest_rating finds the highest and lowest rating given by a certain user
+      # SQL sample for lowest rating, highest rating is the inverse, user_id = 1
+      # SELECT  "reviews".* 
+      # FROM "reviews"  
+      # WHERE "reviews"."user_id" = $1  
+      # ORDER BY "reviews"."rating" ASC LIMIT 1  [["user_id", 1]]
+      @lowest_rating = @user_reviews.order(rating: :asc).first
+      @highest_rating =  @user_reviews.order(rating: :desc).first
+    end
 
   end
 

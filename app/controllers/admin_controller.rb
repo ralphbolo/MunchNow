@@ -9,7 +9,7 @@ class AdminController < ApplicationController
   # FROM "users" 
   # INNER JOIN "reviews" ON "reviews"."user_id" = "users"."id" 
   # GROUP BY email 
-  # HAVING count(review
+  # HAVING count(review)
   def queryk
   	@user = User.select(:email).joins(:reviews).group(:email).having('count(review) > ?', params[:num_reviews]).count.keys
   end
@@ -23,6 +23,16 @@ class AdminController < ApplicationController
   # ORDER BY "reviews"."totalbill" DESC LIMIT 5
   def highest_bill
   	@user = Review.order(totalbill: :desc).first(5)
+  end
+
+  def find_user_that_review_x_restaurant
+    @restaurant = params[:name]
+    if @restaurant.nil?
+          @restaurant =   'please specify a restaurant'
+    else 
+      @restaurant = Restaurant.find(params[:name]).name
+    end
+    @user = User.select(:email).joins(:reviews).group(:email, :restaurant_id).having('restaurant_id = ?', params[:name])
   end
 
 

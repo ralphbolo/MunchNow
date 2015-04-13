@@ -25,6 +25,15 @@ class AdminController < ApplicationController
   	@user = Review.order(totalbill: :desc).first(5)
   end
 
+
+  # SQL
+  # SELECT "users"."email" 
+  # FROM "users" 
+  # INNER JOIN "reviews" 
+  # ON "reviews"."user_id" = "users"."id" 
+  # GROUP BY email, restaurant_id 
+  # HAVING restaurant_id = 1
+
   def find_user_that_review_x_restaurant
     @restaurant = params[:name]
     if @restaurant.nil?
@@ -34,12 +43,4 @@ class AdminController < ApplicationController
     end
     @user = User.select(:email).joins(:reviews).group(:email, :restaurant_id).having('restaurant_id = ?', params[:name])
   end
-
-
-  #Query find a user that has a bill more than user specified value
-
-
-  #Query find the top 5 rated restaurants by absolute value
-
-
 end

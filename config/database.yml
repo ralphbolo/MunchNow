@@ -3,14 +3,14 @@ development:
   database: munchnow_development
   pool: 5
   timeout: 5000
-  username: Home
+  username: Christopher
 
 test:
   adapter: postgresql
   database: munchnow_test
   pool: 5
   timeout: 5000
-  username: Home
+  username: Christopher
 
 production:
   adapter: postgresql

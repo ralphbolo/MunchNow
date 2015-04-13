@@ -79,3 +79,38 @@ a.login:hover:after, .link-anim:hover:after {
 	font-variant: small-caps;
 	font-weight: 900;
 }
+
+
+/*Bouncing*/
+.bounce-down:hover{
+	-webkit-animation: bounce-down 400ms ease-out;
+}
+
+@-webkit-keyframes bounce-down {
+  0% {
+	-webkit-transform:translateY(0%);
+  }
+  50% {
+  	-webkit-transform:translateY(25%);
+  }
+  100% {
+  	-webkit-transform:translateY(0);
+  }
+}
+
+.bounce-up:hover{
+	-webkit-animation: bounce-up 400ms ease-out;
+}
+
+@-webkit-keyframes bounce-up {
+  0% {
+	-webkit-transform:translateY(0%);
+  }
+  50% {
+  	-webkit-transform:translateY(-25%);
+  }
+  100% {
+  	-webkit-transform:translateY(0);
+  }
+}
+

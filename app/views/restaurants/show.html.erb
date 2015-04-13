@@ -48,10 +48,12 @@
 
 					 %>
 		              <p><strong><%= location.address %></strong></p>
-		              <p>Open Time: <%= location.opentime.hour %></p>
+		              <p>Open Time: <%= location.opentime.to_formatted_s(:time)    %></p>
 
-		              <p>Close Time: <%= location.closetime %></p>
-		              <p>Last Updated: <%= location.updated_at %></p>
+		              <p>Close Time: <%= location.closetime.to_formatted_s(:time) %></p>
+		              <p>Last Updated: <%= location.updated_at.to_formatted_s(:long)   %></p>
+		              <p><strong>manager: </strong><%= location.manager %></p>
+		              <p><strong>Phone: </strong><%= location.phone_number %></p>
 				</div>
 				
           		<% end %>

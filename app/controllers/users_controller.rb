@@ -96,7 +96,6 @@ class UsersController < ApplicationController
       @lowest_rating = @user_reviews.order(rating: :asc).first
       @highest_rating =  @user_reviews.order(rating: :desc).first
     end
-
   end
 
   # GET /users/new

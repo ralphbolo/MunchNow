@@ -30,23 +30,14 @@
 				</div>
 				<br>
 				<div class="text-center bottom-border">
-					<%= link_to 'Create a Review', new_restaurant_review_path(@restaurant), class: "btn btn-success" %>
+					<%= link_to 'Create a Review', new_restaurant_review_path(@restaurant), class: "btn btn-success bounce-up" %>
 				</div>
 				<div>
 					<h4><strong>
 					Locations:<% @locations.each do |location| %>
 					</strong></h4>
 					<div class="rest-list">
-						<!-- For conversions of time -->
-					<%
-					 tempOpenT = location.opentime
-					 tempCloseT = location.closetime
 
-					 puts "**********************"
-					 puts "#{tempOpenT.hour}" + ":" + "#{tempOpenT.min}"
-					 puts tempCloseT
-
-					 %>
 		              <p><strong><%= location.address %></strong></p>
 		              <p>Open Time: <%= location.opentime.to_formatted_s(:time)    %></p>
 
@@ -135,9 +126,8 @@
           			<p>Total Bill: $<%= review.totalbill %></p>
           			<p>Last updated: <%= review.updated_at %></p>
 
-          			<!-- <p><%= link_to 'Show', review_path(review.id)%></p> -->
-
-          			<p><%= link_to 'Delete', [review.restaurant, review], method: :delete, data: { confirm: 'Are you sure?' } %></p>
+          			<p><strong><%= link_to 'User', user_path(review.user_id), :class => "bounce-down btn btn-primary"%></strong>
+          			<%= link_to 'Delete', [review.restaurant, review], method: :delete, data: { confirm: 'Are you sure?' } %></p>
           		</div>
           	<% end %>
         </div>

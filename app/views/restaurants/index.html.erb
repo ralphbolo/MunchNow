@@ -4,23 +4,23 @@
   <div class="row text-center">
         <!-- Query --> 
         <!-- Passing variables to be queried against -->
-    <div class="col-xs-3">
+    <div class="col-md-3">
       <%= form_tag restaurants_path, :method => 'get' do %>
 
-        <h1>Search By Keyword</h1>
+        <h2 class="focus">Search By Name</h2>
           <%= text_field_tag :spec, '' %>
     </div>
 
-    <div class="col-xs-3">
-       <h2>Select Type of Restaurant</h2>
+    <div class="col-md-3">
+       <h2 class="focus">Select Type of Restaurant</h2>
 
         <div>
         <%= select_tag("restaurant_type", options_from_collection_for_select(Restaurant.select(:restaurant_type).distinct, :restaurant_type, :restaurant_type), {include_blank: true}) %>
         </div>
     </div>
 
-    <div class="col-xs-3">
-      <h2>Food Prices</h2>
+    <div class="col-md-3">
+      <h2 class="focus">Food Prices</h2>
           <%= label(:price_low, "Low priced food")%>
           <%= radio_button_tag(:pricerange, "low-priced-food") %>
           <br>
@@ -31,8 +31,8 @@
           <%= radio_button_tag(:pricerange, "high-priced-food") %>
     </div>
 
-    <div class="col-xs-3 left-border">
-       <h2>Or select a restaurant!</h2>
+    <div class="col-md-3 left-border">
+       <h2 class="focus">Or select a restaurant!</h2>
 
         <div>
         <%= select_tag("name", options_from_collection_for_select(Restaurant.all, :name, :name), {include_blank: true}) %>
@@ -42,16 +42,16 @@
   </div>
     <div class="row">
         <div class="text-center">
-              <%= submit_tag "Search", :class => 'btn btn-primary link-anim' %>
+              <%= submit_tag "Search", :class => 'btn btn-primary bounce-down' %>
             <% end %>
         </div>
     </div>
   </div>
   
-  <div class="col-xs-2">  
+  <div class="col-md-2">  
     </div>
 
-    <div class="col-xs-8">
+    <div class="col-md-8">
       <h1 class="text-center">Listing <strong><%= @restaurant_count %>/<%= @total_restaurants %></strong> restaurants</h1>
           <% @restaurants.each do |restaurant| %>
             <div class="rest-list">
@@ -66,14 +66,14 @@
               <% end %>
               </strong>(<%= restaurant.pricerange %>)</p>              <h3>Description:</h3> <p><%= restaurant.description %></p>
               <h3>Restaurant Type: <%= restaurant.restaurant_type %></h3>
-              <%= link_to 'Show', restaurant_path(restaurant)%>
-              <%= link_to 'Edit', restaurant_path(restaurant)%>
-              <%= link_to 'Delete', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to 'Show', restaurant_path(restaurant), :class => "link-anim"%>
+              <%= link_to 'Edit', restaurant_path(restaurant), :class => "link-anim" %>
+              <%= link_to 'Delete', restaurant, :class => "link-anim", method: :delete, data: { confirm: 'Are you sure?' } %>
             </div>
           <% end %>
     </div>
 
-      <div class="col-xs-2">
+      <div class="col-md-2">
       </div> 
   </div>
 
